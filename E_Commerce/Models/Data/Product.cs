@@ -16,5 +16,7 @@ namespace E_Commerce.Models.Data
         public double Price { set; get; }
         public IList<Item> Items { set; get; }
         public IList<Image> Images { set; get; }
+        
+        public int Quantity { set; get; }
     }
 }
