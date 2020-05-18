@@ -11,6 +11,6 @@ namespace E_Commerce.Models.Data
         public int Id { set; get; }
         public string Name { set; get; }
         public string Address { set; get; }
-        public IList<Order> Orders { set; get; }
+        public List<Order> Orders { set; get; }
     }
 }

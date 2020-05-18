@@ -44,5 +44,10 @@ namespace E_Commerce.Models.Repositeries
         {
             return _context.Products.Where(product => product.Quantity == 0).ToList();
         }
+
+        public List<int> GetAllCategoriesId()
+        {
+            return _context.Categories.Select(category => category.Id).ToList();
+        }
     }
 }

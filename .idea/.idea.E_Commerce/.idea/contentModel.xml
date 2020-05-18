@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Mr\.Rider2019.2\config\consoles\db" t="IncludeRecursive" />
@@ -13,6 +13,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="ProductController.cs" t="Include" />
         </e>
         <e p="E_Commerce.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
@@ -20,6 +21,8 @@
           <e p="20200518015733_Init.Designer.cs" t="Include" />
           <e p="20200518025256_AddQuantityInProduct.cs" t="Include" />
           <e p="20200518025256_AddQuantityInProduct.Designer.cs" t="Include" />
+          <e p="20200518170649_modify Lists.cs" t="Include" />
+          <e p="20200518170649_modify Lists.Designer.cs" t="Include" />
           <e p="ECommerceContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -33,6 +36,13 @@
             <e p="Product.cs" t="Include" />
           </e>
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="FilesHelper" t="Include">
+            <e p="FilesUploading.cs" t="Include" />
+            <e p="IInstance.cs" t="Include" />
+          </e>
+          <e p="FormsData" t="Include">
+            <e p="ProductForm.cs" t="Include" />
+          </e>
           <e p="Repositeries" t="Include">
             <e p="IProductRepo.cs" t="Include" />
             <e p="IRepo.cs" t="Include" />
@@ -58,6 +68,9 @@
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
           </e>
+          <e p="Product" t="Include">
+            <e p="Add.cshtml" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -69,6 +82,17 @@
             <e p="site.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
+          <e p="images" t="Include">
+            <e p="094f497d-3ae5-40ce-aea0-311c7c6daa49_93269790_1336764853379123_6940602927690022912_o.jpg" t="Include" />
+            <e p="113fcaf4-ae67-4e5d-a540-244cf0ff52b6_9_e5eb8e98cc - Copy.jpg" t="Include" />
+            <e p="158ab396-257f-4b51-9152-dd8c6e46101a_12313714_10153402663370345_8983252820405287690_n.jpg" t="Include" />
+            <e p="33f0f02d-370d-4f74-b8e0-1df571e7326f_97396869_2597369730581854_5096724642329001984_o.png" t="Include" />
+            <e p="388d02c7-c83e-4a6c-8577-df38498e005c_93367192_2837084173055089_4948632602299858944_o - Copy.jpg" t="Include" />
+            <e p="43310f29-c341-4989-82cf-78229333cce1_unnamed.jpg" t="Include" />
+            <e p="b7cdc8e9-c0c6-46db-9265-754ae209385b_download.jfif" t="Include" />
+            <e p="d4f9eb28-9d53-43ef-970f-f1b2c7d79235_93269790_1336764853379123_6940602927690022912_o.jpg" t="Include" />
+            <e p="eae3ea17-c82c-4c78-a273-3eeb6dbbfb1a_97396869_2597369730581854_5096724642329001984_o.png" t="Include" />
+          </e>
           <e p="js" t="Include">
             <e p="site.js" t="Include" />
           </e>

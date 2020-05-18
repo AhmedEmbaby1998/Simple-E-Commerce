@@ -14,8 +14,8 @@ namespace E_Commerce.Models.Data
         public Category Category { set; get; }
         public string Name { set; get; }
         public double Price { set; get; }
-        public IList<Item> Items { set; get; }
-        public IList<Image> Images { set; get; }
+        public List<Item> Items { set; get; }
+        public List<Image> Images { set; get; }
         
         public int Quantity { set; get; }
     }

@@ -11,7 +11,7 @@ namespace E_Commerce.Models.Data
         public Customer Customer { set; get; }
         public DateTime OrderDate { set; get; }
         public DateTime DeliverDate { set; get; }
-        public IList<Item> Items { set; get; }
+        public List<Item> Items { set; get; }
 
         public Order()
         {

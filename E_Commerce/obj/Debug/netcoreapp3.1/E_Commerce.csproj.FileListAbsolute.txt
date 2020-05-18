@@ -74,3 +74,4 @@ C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commer
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commerce.csproj.CopyComplete
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commerce.dll
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commerce.pdb
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Add.cshtml.g.cs

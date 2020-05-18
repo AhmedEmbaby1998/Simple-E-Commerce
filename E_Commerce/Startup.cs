@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Commerce.Models.Data;
+using E_Commerce.Models.Repositeries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,7 @@ namespace E_Commerce
                 builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
                     .UseLoggerFactory(ConsoleLoggetFactory)
                 );
+            services.AddScoped<IRepo<Product>, ProductRepo>();
             services.AddControllersWithViews();
         }
 

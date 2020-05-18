@@ -10,6 +10,6 @@ namespace E_Commerce.Models.Data
         }
         public int Id { set; get; }
         public string Name { set; get; }
-        public IList<Product> Products { set; get;}
+        public List<Product> Products { set; get;}
     }
 }

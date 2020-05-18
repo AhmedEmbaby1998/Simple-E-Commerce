@@ -9,6 +9,7 @@ namespace E_Commerce.Models.Repositeries
         void Update(T element);
         void Remove(int id);
         IList<T> GetAll();
-        T Get(int id);
+        T Get(int id); 
+        List<int> GetAllCategoriesId();
     }
 }
