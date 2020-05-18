@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using E_Commerce.Models.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace E_Commerce
 {
@@ -23,6 +26,16 @@ namespace E_Commerce
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var ConsoleLoggetFactory = LoggerFactory.Create(builder => 
+            {
+                builder.AddFilter((s, level) =>
+                    s == DbLoggerCategory.Database.Command.Name
+                    && level == LogLevel.Information).AddConsole(); 
+            });
+            services.AddDbContextPool<ECommerceContext>(
+                builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
+                    .UseLoggerFactory(ConsoleLoggetFactory)
+                );
             services.AddControllersWithViews();
         }
 

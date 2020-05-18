@@ -15,7 +15,21 @@
           <e p="HomeController.cs" t="Include" />
         </e>
         <e p="E_Commerce.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20200518015733_Init.cs" t="Include" />
+          <e p="20200518015733_Init.Designer.cs" t="Include" />
+          <e p="ECommerceContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="Models" t="Include">
+          <e p="Data" t="Include">
+            <e p="Category.cs" t="Include" />
+            <e p="Customer.cs" t="Include" />
+            <e p="ECommerceContext.cs" t="Include" />
+            <e p="Image.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
+            <e p="Order.cs" t="Include" />
+            <e p="Product.cs" t="Include" />
+          </e>
           <e p="ErrorViewModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
