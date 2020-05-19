@@ -37,7 +37,7 @@ namespace E_Commerce
                 builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
                     .UseLoggerFactory(ConsoleLoggetFactory)
                 );
-            services.AddScoped<IRepo<Product>, ProductRepo>();
+            services.AddScoped<IProductRepo, ProductRepo>();
             services.AddControllersWithViews();
         }
 

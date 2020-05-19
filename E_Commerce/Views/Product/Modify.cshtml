@@ -5,7 +5,7 @@
 }
 
 <h2>title</h2>
-<form>
+<form enctype="multipart/form-data" asp-controller="Product" asp-action="Modify" method="post">
     <div>
         <div>
             <label asp-for="CategoryId">Category</label>
@@ -26,16 +26,20 @@
             <label asp-for="Price">Price</label>
             <input asp-for="Price" type="text"/>
         </div>
-           <div>
-                    @{
-                        foreach (var modelOldImage in Model.OldImages)
-                        {
-                            <img src="~/images/@modelOldImage.Path"
-                                 asp-append-version="true" alt="Hey no image"
-                                 width="200" height="200"/>
-                        }
-                    }
-                </div>
+        <div>
+            <label asp-for="newImages">Delete Old Images and Add new</label>
+            <input asp-for="newImages" type="file" multiple="multiple"/>
+        </div>
+        <div>
+            @{
+                foreach (var modelOldImage in Model.OldImages)
+                {
+                    <img src="~/images/@modelOldImage.Path"
+                         asp-append-version="true" alt="Hey no image"
+                         width="200" height="200"/>
+                }
+            }
+        </div>
         <input hidden="hidden" asp-for="Id"/>
         <div>
             <input type="submit"/>

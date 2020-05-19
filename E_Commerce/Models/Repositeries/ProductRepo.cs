@@ -33,24 +33,30 @@ namespace E_Commerce.Models.Repositeries
 
         public IList<Product> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Products.AsNoTracking().ToList();
         }
 
         public Product Get(int id)
         {
-            return _context.Products
+            return _context.Products.AsNoTracking()
                 .Include(product => product.Images)
                 .First(product => product.Id==id);
         }
 
         public IList<Product> GetEmptyProducts()
         {
-            return _context.Products.Where(product => product.Quantity == 0).ToList();
+            return _context.Products.AsNoTracking().Where(product => product.Quantity == 0).ToList();
+        }
+
+        public IList<Image> GetImages(int id)
+        {
+            return _context.Images.AsNoTracking()
+                .Where(image => image.ProductId == id).ToList();
         }
 
         public List<int> GetAllCategoriesId()
         {
-            return _context.Categories.Select(category => category.Id).ToList();
+            return _context.Categories.AsNoTracking().Select(category => category.Id).ToList();
         }
     }
 }

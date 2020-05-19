@@ -6,6 +6,7 @@ namespace E_Commerce.Models.Repositeries
     public interface IProductRepo:IRepo<Product>
     {
         IList<Product> GetEmptyProducts();
-        
+        IList<Image> GetImages(int id);
+
     }
 }
