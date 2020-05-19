@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Models\FormsData" />
       <Folder Include="wwwroot\images" />
     </ItemGroup>
 

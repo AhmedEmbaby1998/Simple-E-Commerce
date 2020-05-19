@@ -40,9 +40,7 @@
             <e p="FilesUploading.cs" t="Include" />
             <e p="IInstance.cs" t="Include" />
           </e>
-          <e p="FormsData" t="Include">
-            <e p="ProductForm.cs" t="Include" />
-          </e>
+          <e p="FormsData" t="Include" />
           <e p="Repositeries" t="Include">
             <e p="IProductRepo.cs" t="Include" />
             <e p="IRepo.cs" t="Include" />
@@ -61,6 +59,10 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="ViewModel" t="Include">
+          <e p="ModifyProductCustomViewModel.cs" t="Include" />
+          <e p="ProductForm.cs" t="Include" />
+        </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
@@ -70,6 +72,7 @@
           </e>
           <e p="Product" t="Include">
             <e p="Add.cshtml" t="Include" />
+            <e p="Modify.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
@@ -82,17 +85,7 @@
             <e p="site.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
-          <e p="images" t="Include">
-            <e p="094f497d-3ae5-40ce-aea0-311c7c6daa49_93269790_1336764853379123_6940602927690022912_o.jpg" t="Include" />
-            <e p="113fcaf4-ae67-4e5d-a540-244cf0ff52b6_9_e5eb8e98cc - Copy.jpg" t="Include" />
-            <e p="158ab396-257f-4b51-9152-dd8c6e46101a_12313714_10153402663370345_8983252820405287690_n.jpg" t="Include" />
-            <e p="33f0f02d-370d-4f74-b8e0-1df571e7326f_97396869_2597369730581854_5096724642329001984_o.png" t="Include" />
-            <e p="388d02c7-c83e-4a6c-8577-df38498e005c_93367192_2837084173055089_4948632602299858944_o - Copy.jpg" t="Include" />
-            <e p="43310f29-c341-4989-82cf-78229333cce1_unnamed.jpg" t="Include" />
-            <e p="b7cdc8e9-c0c6-46db-9265-754ae209385b_download.jfif" t="Include" />
-            <e p="d4f9eb28-9d53-43ef-970f-f1b2c7d79235_93269790_1336764853379123_6940602927690022912_o.jpg" t="Include" />
-            <e p="eae3ea17-c82c-4c78-a273-3eeb6dbbfb1a_97396869_2597369730581854_5096724642329001984_o.png" t="Include" />
-          </e>
+          <e p="images" t="Include" />
           <e p="js" t="Include">
             <e p="site.js" t="Include" />
           </e>

@@ -25,7 +25,7 @@ namespace E_Commerce.Controllers
         public IActionResult Create(ProductForm form)
         {
             var up = new FilesUploading(_environment,"images");
-            up.StageRange(form.Images);
+            up.Save();
             up.Save();
             
             _repo.Insert(new Product
@@ -39,7 +39,7 @@ namespace E_Commerce.Controllers
             
             return RedirectToAction("Add");
         }
-
+        
         public IActionResult Add()
         {
             var model = new ProductForm()
@@ -47,6 +47,21 @@ namespace E_Commerce.Controllers
                 Categories = _repo.GetAllCategoriesId()
             };
             return View(model);
+        }
+        [Route("Product/Modify/{id?}")]
+
+        public IActionResult Modify(int id)
+        {
+            var product = _repo.Get(id);
+            
+            return View(new ModifyProductCustomViewModel
+            {
+                Price = product.Price,
+                Id=product.Id,
+                OldImages =product.Images,
+                Name = product.Name,
+                CategoriesId = _repo.GetAllCategoriesId(),
+            });
         }
     }
 }

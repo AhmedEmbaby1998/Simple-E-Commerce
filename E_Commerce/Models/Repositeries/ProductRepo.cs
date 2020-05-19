@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using E_Commerce.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Models.Repositeries
 {
@@ -37,7 +38,9 @@ namespace E_Commerce.Models.Repositeries
 
         public Product Get(int id)
         {
-            return _context.Products.Find(id);
+            return _context.Products
+                .Include(product => product.Images)
+                .First(product => product.Id==id);
         }
 
         public IList<Product> GetEmptyProducts()

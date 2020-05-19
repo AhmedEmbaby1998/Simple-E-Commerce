@@ -1,0 +1,45 @@
+﻿@model E_Commerce.Models.FormsData.ModifyProductCustomViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<form>
+    <div>
+        <div>
+            <label asp-for="CategoryId">Category</label>
+            <select asp-for="CategoryId">
+                @{
+                    foreach (var i in Model.CategoriesId)
+                    {
+                        <option>@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <div>
+            <label asp-for="Name">Product Name</label>
+            <input asp-for="Name" type="text"/>
+        </div>
+        <div>
+            <label asp-for="Price">Price</label>
+            <input asp-for="Price" type="text"/>
+        </div>
+           <div>
+                    @{
+                        foreach (var modelOldImage in Model.OldImages)
+                        {
+                            <img src="C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\wwwroot\images\@modelOldImage.Path"
+                                 asp-append-version="true" alt="Hey no image"/>
+                        }
+                    }
+                </div>
+        <input hidden="hidden" asp-for="Id"/>
+        <div>
+            <input type="submit"/>
+        </div>
+     
+        
+    </div>
+</form>
