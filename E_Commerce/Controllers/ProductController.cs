@@ -25,9 +25,8 @@ namespace E_Commerce.Controllers
         public IActionResult Create(ProductForm form)
         {
             var up = new FilesUploading(_environment,"images");
+            up.StageRange(form.Images);
             up.Save();
-            up.Save();
-            
             _repo.Insert(new Product
             {
                 CategoryId = form.CategoryId,

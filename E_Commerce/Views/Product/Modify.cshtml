@@ -30,8 +30,9 @@
                     @{
                         foreach (var modelOldImage in Model.OldImages)
                         {
-                            <img src="C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\wwwroot\images\@modelOldImage.Path"
-                                 asp-append-version="true" alt="Hey no image"/>
+                            <img src="~/images/@modelOldImage.Path"
+                                 asp-append-version="true" alt="Hey no image"
+                                 width="200" height="200"/>
                         }
                     }
                 </div>

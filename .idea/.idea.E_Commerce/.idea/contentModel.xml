@@ -85,7 +85,12 @@
             <e p="site.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
-          <e p="images" t="Include" />
+          <e p="images" t="Include">
+            <e p="04162180-ebd1-44f5-a627-0d8869fad235_12313714_10153402663370345_8983252820405287690_n.jpg" t="Include" />
+            <e p="71b753da-1134-4087-9441-c0c1d8b3dc09_9_e5eb8e98cc.jpg" t="Include" />
+            <e p="819e7939-af38-4d2b-8af0-e7ae0190807f_93367192_2837084173055089_4948632602299858944_o - Copy.jpg" t="Include" />
+            <e p="e5991a2a-ca5f-4b0c-940b-bd0d37775041_93269790_1336764853379123_6940602927690022912_o.jpg" t="Include" />
+          </e>
           <e p="js" t="Include">
             <e p="site.js" t="Include" />
           </e>
