@@ -79,6 +79,7 @@ namespace E_Commerce.Controllers
                 up.StageRange(form.newImages);
                 up.Save();
                 modifProduct.Images = up.GetFilesObjects<Image>();
+                _repo.DeleteAllImages(form.Id);
             }
 
             var oldQuantity = _repo.Get(form.Id).Quantity;

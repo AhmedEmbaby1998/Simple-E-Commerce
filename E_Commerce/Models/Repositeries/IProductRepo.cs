@@ -7,6 +7,7 @@ namespace E_Commerce.Models.Repositeries
     {
         IList<Product> GetEmptyProducts();
         IList<Image> GetImages(int id);
+        void DeleteAllImages(int id);
 
     }
 }

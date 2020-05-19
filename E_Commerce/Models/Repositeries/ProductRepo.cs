@@ -54,9 +54,20 @@ namespace E_Commerce.Models.Repositeries
                 .Where(image => image.ProductId == id).ToList();
         }
 
+        public void DeleteAllImages(int id)
+        {
+            var l = _context.Products
+                .AsNoTracking()
+                .Where(product => product.Id==id)
+                .Select(product => product.Images).First();
+            _context.Images.RemoveRange(l);
+            _context.SaveChanges();
+        }
+
         public List<int> GetAllCategoriesId()
         {
             return _context.Categories.AsNoTracking().Select(category => category.Id).ToList();
         }
+        
     }
 }
