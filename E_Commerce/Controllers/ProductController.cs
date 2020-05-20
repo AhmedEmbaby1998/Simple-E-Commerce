@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security.Policy;
-using System.Threading.Tasks;
+﻿
+using System;
 using E_Commerce.Models.Data;
 using E_Commerce.Models.FilesHelper;
 using E_Commerce.Models.FormsData;
@@ -48,7 +45,7 @@ namespace E_Commerce.Controllers
             };
             return View(model);
         }
-        [Route("Product/Modify/{id?}")]
+        [Microsoft.AspNetCore.Mvc.Route("Product/Modify/{id?}")]
 
         [HttpGet]
         public IActionResult Modify(int? id)
@@ -95,6 +92,21 @@ namespace E_Commerce.Controllers
             modifProduct.Quantity = oldQuantity;
             _repo.Update(modifProduct);
             return RedirectToAction("Add");
+        }
+
+        [Route("Error/{statusCode}")]
+        public ActionResult Error(int statusCode)
+        {
+            switch (statusCode)
+            {
+                case 404:
+                {
+                    ViewBag.text = "The page is not found";
+                    return View("ErrorHandling");
+                }
+                    break;
+            } 
+            return View("ErrorHandling");
         }
     }
 }

@@ -72,6 +72,7 @@
           </e>
           <e p="Product" t="Include">
             <e p="Add.cshtml" t="Include" />
+            <e p="ErrorHandling.cshtml" t="Include" />
             <e p="Modify.cshtml" t="Include" />
             <e p="ProductError.cshtml" t="Include" />
           </e>
