@@ -76,3 +76,4 @@ C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commer
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\E_Commerce.pdb
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Add.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Modify.cshtml.g.cs
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\ProductError.cshtml.g.cs

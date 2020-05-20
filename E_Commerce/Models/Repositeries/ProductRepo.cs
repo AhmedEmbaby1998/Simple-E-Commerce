@@ -40,7 +40,7 @@ namespace E_Commerce.Models.Repositeries
         {
             return _context.Products.AsNoTracking()
                 .Include(product => product.Images)
-                .First(product => product.Id==id);
+                .FirstOrDefault(product => product.Id==id);
         }
 
         public IList<Product> GetEmptyProducts()

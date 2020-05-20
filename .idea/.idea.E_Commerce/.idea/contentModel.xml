@@ -73,6 +73,7 @@
           <e p="Product" t="Include">
             <e p="Add.cshtml" t="Include" />
             <e p="Modify.cshtml" t="Include" />
+            <e p="ProductError.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
@@ -87,8 +88,12 @@
           <e p="favicon.ico" t="Include" />
           <e p="images" t="Include">
             <e p="063965b4-0dff-427c-98a9-71ec700dca54_download.jfif" t="Include" />
+            <e p="0e5465c7-7e3f-4460-a2c0-8f619ff27ed6" t="Include" />
+            <e p="63a37dad-1547-43e0-bc61-3417181f6e6d" t="Include" />
+            <e p="72ca972e-baf7-4600-b63c-e06a35a77977" t="Include" />
             <e p="a3c6f778-83a5-418d-b3ce-07923c8970de_download.jfif" t="Include" />
             <e p="e6e04a31-78dd-4d20-a281-ca8fbf770d21_95464131_280271023139883_6152868357524684800_n.jpg" t="Include" />
+            <e p="f90cc120-bb98-4639-9f7e-16763f1c76f7" t="Include" />
           </e>
           <e p="js" t="Include">
             <e p="site.js" t="Include" />

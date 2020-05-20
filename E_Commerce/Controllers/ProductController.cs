@@ -51,10 +51,15 @@ namespace E_Commerce.Controllers
         [Route("Product/Modify/{id?}")]
 
         [HttpGet]
-        public IActionResult Modify(int id)
+        public IActionResult Modify(int? id)
         {
-            var product = _repo.Get(id);
-            
+            var product = _repo.Get(id??1);
+            if (product==null)
+            {
+                Response.StatusCode = 404;
+                return View("ProductError",id.Value);
+            }
+
             return View(new ModifyProductCustomViewModel
             {
                 Price = product.Price,
