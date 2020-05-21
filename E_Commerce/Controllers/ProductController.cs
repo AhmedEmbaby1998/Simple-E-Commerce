@@ -94,19 +94,6 @@ namespace E_Commerce.Controllers
             return RedirectToAction("Add");
         }
 
-        [Route("Error/{statusCode}")]
-        public ActionResult Error(int statusCode)
-        {
-            switch (statusCode)
-            {
-                case 404:
-                {
-                    ViewBag.text = "The page is not found";
-                    return View("ErrorHandling");
-                }
-                    break;
-            } 
-            return View("ErrorHandling");
-        }
+    
     }
 }

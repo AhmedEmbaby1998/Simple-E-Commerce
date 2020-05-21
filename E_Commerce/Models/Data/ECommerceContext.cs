@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Models.Data
 {
-    public class ECommerceContext:DbContext
+    public class ECommerceContext:IdentityDbContext
     {
-        public ECommerceContext(DbContextOptions options):base(options)
+        public ECommerceContext(DbContextOptions<ECommerceContext> options):base(options)
         { 
         }
-        public DbSet<Category> Categories { set; get; }
+        public DbSet<Category> CategoriesProduct { set; get; }
         public DbSet<Customer> Customers { set; get; }
         public DbSet<Image> Images { set; get; }
         public DbSet<Item> Items { set; get; }

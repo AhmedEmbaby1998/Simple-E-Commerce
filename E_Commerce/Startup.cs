@@ -7,6 +7,7 @@ using E_Commerce.Models.Repositeries;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +38,13 @@ namespace E_Commerce
                 builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
                     .UseLoggerFactory(ConsoleLoggetFactory)
                 );
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                {
+                    options.Password.RequireDigit = true;
+                    options.Password.RequiredLength = 5;
+                    options.Password.RequireUppercase = true;
+                })
+                .AddEntityFrameworkStores<ECommerceContext>();
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddControllersWithViews();
         }
@@ -49,7 +57,8 @@ namespace E_Commerce
                 app.UseDeveloperExceptionPage();
             }
             else
-            {
+            { 
+                app.UseExceptionHandler("/Exception"); 
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 

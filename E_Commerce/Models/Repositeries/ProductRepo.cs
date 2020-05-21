@@ -66,7 +66,7 @@ namespace E_Commerce.Models.Repositeries
 
         public List<int> GetAllCategoriesId()
         {
-            return _context.Categories.AsNoTracking().Select(category => category.Id).ToList();
+            return _context.CategoriesProduct.AsNoTracking().Select(category => category.Id).ToList();
         }
         
     }
