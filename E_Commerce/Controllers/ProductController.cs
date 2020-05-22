@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 using E_Commerce.Models.Data;
 using E_Commerce.Models.FilesHelper;
 using E_Commerce.Models.FormsData;
@@ -93,6 +94,7 @@ namespace E_Commerce.Controllers
             _repo.Update(modifProduct);
             return RedirectToAction("Add");
         }
+
 
     
     }

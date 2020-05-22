@@ -42,7 +42,8 @@ namespace E_Commerce
                 {
                     options.Password.RequireDigit = true;
                     options.Password.RequiredLength = 5;
-                    options.Password.RequireUppercase = true;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<ECommerceContext>();
             services.AddScoped<IProductRepo, ProductRepo>();
@@ -61,6 +62,7 @@ namespace E_Commerce
                 app.UseExceptionHandler("/Exception"); 
                 app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

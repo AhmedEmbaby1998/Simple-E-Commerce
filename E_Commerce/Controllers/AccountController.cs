@@ -36,10 +36,10 @@ namespace E_Commerce.Controllers
                     UserName = model.Email,
                     Email = model.Email
                 };
-                var result = await _userManager.CreateAsync(user);
+                var result = await _userManager.CreateAsync(user,model.Password);
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, false);
+                    await _signInManager.SignInAsync(user, isPersistent:false);
                     return RedirectToAction("Add", "Product");
                 }
 
@@ -50,6 +50,37 @@ namespace E_Commerce.Controllers
             }
             return RedirectToAction("Register"); 
             }
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(LogInViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result =
+                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    Console.WriteLine("Here sucessssssssssssssssssssssssssssssss");
+                    return RedirectToAction("Add", "Product");
+                }
+            }
+            return RedirectToAction("Register"); 
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("LogIn");
+        }
+
+
+
+
+
             
     }
 }
