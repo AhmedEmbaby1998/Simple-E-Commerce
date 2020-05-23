@@ -5,6 +5,7 @@ using E_Commerce.Models.Data;
 using E_Commerce.Models.FilesHelper;
 using E_Commerce.Models.FormsData;
 using E_Commerce.Models.Repositeries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,7 @@ namespace E_Commerce.Controllers
             _environment = environment;
         }
         [HttpPost]
+        [Authorize]
         public IActionResult Create(ProductForm form)
         {
             var up = new FilesUploading(_environment,"images");
@@ -37,7 +39,7 @@ namespace E_Commerce.Controllers
             
             return RedirectToAction("Add");
         }
-        
+        [Authorize]
         public IActionResult Add()
         {
             var model = new ProductForm()
@@ -46,9 +48,9 @@ namespace E_Commerce.Controllers
             };
             return View(model);
         }
-        [Microsoft.AspNetCore.Mvc.Route("Product/Modify/{id?}")]
-
+        [Route("Product/Modify/{id?}")]
         [HttpGet]
+        [Authorize]
         public IActionResult Modify(int? id)
         {
             var product = _repo.Get(id??1);
@@ -68,7 +70,7 @@ namespace E_Commerce.Controllers
             });
         }
         [HttpPost]
-
+        [Authorize]
         public IActionResult Modify(ModifyProductCustomViewModel form)
         {
             var modifProduct=new Product();
@@ -94,7 +96,21 @@ namespace E_Commerce.Controllers
             _repo.Update(modifProduct);
             return RedirectToAction("Add");
         }
+        [Route("products")]
+        [Route("/")]
+        [Route("index")]
+        [Authorize]
 
+        public IActionResult Products()
+        {
+            var product = _repo.GetAll();
+            foreach (var aProduct in product)
+            {
+               Console.WriteLine("sssssssssssssssssssssssssssssss   "+aProduct.Images.Count);
+            }
+            return View(product);
+        }
+ 
 
     
     }

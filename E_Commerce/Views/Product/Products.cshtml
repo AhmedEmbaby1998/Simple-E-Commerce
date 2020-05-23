@@ -1,0 +1,19 @@
+﻿@using E_Commerce.Models.Data
+@model IList<E_Commerce.Models.Data.Product>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@foreach (var product in Model)
+{
+    <div>
+        @foreach (var image in product.Images)
+        {
+            <img height="200" width="200" alt="Not Found" src="~/images/@image.Path" asp-append-version="true"/>
+        }
+        <text>@product.Name</text>
+        <text>@product.Price</text>
+    </div>
+}

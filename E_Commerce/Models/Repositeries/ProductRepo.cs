@@ -33,7 +33,9 @@ namespace E_Commerce.Models.Repositeries
 
         public IList<Product> GetAll()
         {
-            return _context.Products.AsNoTracking().ToList();
+            return _context.Products.AsNoTracking()
+                .Include(product => product.Images)
+                .ToList();
         }
 
         public Product Get(int id)

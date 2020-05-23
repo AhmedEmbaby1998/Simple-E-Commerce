@@ -37,7 +37,7 @@ namespace E_Commerce.Models.FilesHelper
         {
             foreach (var formFile in _formFiles)
             {
-                var key = Guid.NewGuid()+"_"+formFile.FileName;
+                var key = Guid.NewGuid()+"_"+Path.GetFileName(formFile.FileName);
                 _keys.Add(key);
                 var path = Path.Combine(_environment.WebRootPath, _subDirectory, key);
                 formFile.CopyTo(new FileStream(path,FileMode.Create));

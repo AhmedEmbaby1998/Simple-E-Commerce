@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using E_Commerce.Models.FormsData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,7 +57,7 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LogIn(LogInViewModel model)
+        public async Task<IActionResult> LogIn(LogInViewModel model,string resturnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -64,17 +65,27 @@ namespace E_Commerce.Controllers
                     await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    Console.WriteLine("Here sucessssssssssssssssssssssssssssssss");
-                    return RedirectToAction("Add", "Product");
+                    if (!string.IsNullOrEmpty(resturnUrl)&&Url.IsLocalUrl(resturnUrl))
+                    { 
+                        return Redirect(resturnUrl);
+                    } 
+                    return RedirectToAction("Products", "Product");
                 }
             }
-            return RedirectToAction("Register"); 
+            return RedirectToAction("LogIn"); 
         }
 
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("LogIn");
+        }
+        [HttpPost,HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsEmailExisted(string email)
+        {
+            var state= await  _userManager.FindByEmailAsync(email);
+            return state != null ? Json($"the email :{email} is already existed") : Json(true);
         }
 
 
