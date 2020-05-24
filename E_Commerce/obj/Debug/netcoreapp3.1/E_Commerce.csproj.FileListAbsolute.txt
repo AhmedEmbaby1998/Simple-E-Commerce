@@ -87,3 +87,5 @@ C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\bin\Debug\netcoreapp3.1\Microsof
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Account\LogIn.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Products.cshtml.g.cs
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Add.cshtml.g.cs
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\GetAll.cshtml.g.cs

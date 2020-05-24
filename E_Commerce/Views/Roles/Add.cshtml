@@ -1,0 +1,11 @@
+﻿@model E_Commerce.Models.FormsData.CreateRolesViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-action="Add" asp-controller="Roles">
+    <label asp-for="Role">Role Name</label>
+    <input type="text" asp-for="Role"/><br/><br/>
+    <input type="submit"/>
+</form>

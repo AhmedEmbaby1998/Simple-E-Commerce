@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model System.Collections.Generic.List<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    foreach (IdentityRole identityRole in Model)
+    {
+        <div class="align-content-lg-center">
+            <span class="align-baseline">@identityRole.Name</span>
+            <span class="align-content-lg-center">@identityRole.ConcurrencyStamp</span>
+            <button class="align-content-start">Edit</button>
+            <button class="align-content-start">Delete</button>
+        </div>
+    }
+}

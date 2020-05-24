@@ -16,6 +16,7 @@
           <e p="ErrorController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="ProductController.cs" t="Include" />
+          <e p="RolesController.cs" t="Include" />
         </e>
         <e p="E_Commerce.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
@@ -64,6 +65,7 @@
           <e p="ValidateEmailDomainAttribute.cs" t="Include" />
         </e>
         <e p="ViewModel" t="Include">
+          <e p="CreateRolesViewModel.cs" t="Include" />
           <e p="LogInViewModel.cs" t="Include" />
           <e p="ModifyProductCustomViewModel.cs" t="Include" />
           <e p="ProductForm.cs" t="Include" />
@@ -89,6 +91,10 @@
             <e p="Modify.cshtml" t="Include" />
             <e p="ProductError.cshtml" t="Include" />
             <e p="Products.cshtml" t="Include" />
+          </e>
+          <e p="Roles" t="Include">
+            <e p="Add.cshtml" t="Include" />
+            <e p="GetAll.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
