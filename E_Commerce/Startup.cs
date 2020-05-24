@@ -38,7 +38,7 @@ namespace E_Commerce
                 builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
                     .UseLoggerFactory(ConsoleLoggetFactory)
                 );
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = true;
                     options.Password.RequiredLength = 5;

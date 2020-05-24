@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Models.Data
 {
-    public class ECommerceContext:IdentityDbContext
+    public class ECommerceContext:IdentityDbContext<ApplicationUser>
     {
         public ECommerceContext(DbContextOptions<ECommerceContext> options):base(options)
         { 

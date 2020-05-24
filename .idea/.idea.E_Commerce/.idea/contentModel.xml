@@ -21,10 +21,13 @@
         <e p="Migrations" t="Include">
           <e p="20200521180006_Add identity.cs" t="Include" />
           <e p="20200521180006_Add identity.Designer.cs" t="Include" />
+          <e p="20200523235751_Add custom identityUser.cs" t="Include" />
+          <e p="20200523235751_Add custom identityUser.Designer.cs" t="Include" />
           <e p="ECommerceContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Data" t="Include">
+            <e p="ApplicationUser.cs" t="Include" />
             <e p="Category.cs" t="Include" />
             <e p="Customer.cs" t="Include" />
             <e p="ECommerceContext.cs" t="Include" />
@@ -99,6 +102,7 @@
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="images" t="Include">
+            <e p="3327ee81-f165-4865-940e-dc86b4dfc6cf_93367192_2837084173055089_4948632602299858944_o - Copy.jpg" t="Include" />
             <e p="67e98a86-d6af-4cbc-af60-409c79644d45_93367192_2837084173055089_4948632602299858944_o - Copy.jpg" t="Include" />
             <e p="e6e2e016-b204-4a8b-917e-c54938c3d792_93367192_2837084173055089_4948632602299858944_o.jpg" t="Include" />
           </e>
