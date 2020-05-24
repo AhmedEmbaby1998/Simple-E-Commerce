@@ -89,3 +89,4 @@ C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Product\Products.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Add.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\GetAll.cshtml.g.cs
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs

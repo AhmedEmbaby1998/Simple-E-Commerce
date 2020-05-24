@@ -11,8 +11,8 @@
         <div class="align-content-lg-center">
             <span class="align-baseline">@identityRole.Name</span>
             <span class="align-content-lg-center">@identityRole.ConcurrencyStamp</span>
-            <button class="align-content-start">Edit</button>
-            <button class="align-content-start">Delete</button>
+            <a  asp-controller="Roles" asp-action="Edit" asp-route-id="@identityRole.Id" >Edit</a>
+            <a type="submit" class="align-content-start">Delete</a>
         </div>
     }
 }

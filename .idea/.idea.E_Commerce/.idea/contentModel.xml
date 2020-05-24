@@ -66,6 +66,7 @@
         </e>
         <e p="ViewModel" t="Include">
           <e p="CreateRolesViewModel.cs" t="Include" />
+          <e p="EditViewModel.cs" t="Include" />
           <e p="LogInViewModel.cs" t="Include" />
           <e p="ModifyProductCustomViewModel.cs" t="Include" />
           <e p="ProductForm.cs" t="Include" />
@@ -94,6 +95,7 @@
           </e>
           <e p="Roles" t="Include">
             <e p="Add.cshtml" t="Include" />
+            <e p="Edit.cshtml" t="Include" />
             <e p="GetAll.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
