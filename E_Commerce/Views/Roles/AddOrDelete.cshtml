@@ -1,0 +1,24 @@
+﻿@model System.Collections.Generic.List<E_Commerce.Models.FormsData.AddOrDeleteUsersViewModel>
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-controller="Roles" asp-action="AddOrDelete" method="post" >
+    @{
+        for (var i = 0; i < Model.Count; i++)
+        {
+            if (Model[i].IsSelected)
+            {
+                <input type="checkbox" checked="checked" asp-for="@Model[i].IsSelected"/>
+            }
+            else
+            {
+                <input type="checkbox"  asp-for="@Model[i].IsSelected"/>
+            }
+            <label asp-for="@Model[i].UserName">@Model[i].UserName</label>
+            <input asp-for="@Model[i].Id" type="hidden"/> <br/>                                                     
+        }
+    }
+    <input type="submit"/>
+</form>

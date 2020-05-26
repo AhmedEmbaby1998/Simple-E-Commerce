@@ -1,9 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using E_Commerce.Models.Data;
 using E_Commerce.Models.FormsData;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,20 +16,26 @@ namespace E_Commerce.Controllers
     {
         private readonly RoleManager<IdentityRole> _rolesManager;
         private UserManager<ApplicationUser> _userManager;
+        private ECommerceContext _context;
 
-        public RolesController(RoleManager<IdentityRole> rolesController,UserManager<ApplicationUser> userManager)
+        public RolesController(RoleManager<IdentityRole> rolesController,UserManager<ApplicationUser> userManager
+        ,ECommerceContext context)
         {
             _rolesManager = rolesController;
             _userManager = userManager;
+            _context = context;
         }
         [HttpGet]
+        [Authorize(Roles="Admin1")]
+        [Authorize(Roles = "admin2")]
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles="Admin1")]
+        [Authorize(Roles = "admin2")]
         public async Task<IActionResult> Add(CreateRolesViewModel model)
         {
             if (ModelState.IsValid)
@@ -50,7 +59,8 @@ namespace E_Commerce.Controllers
         }
         
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles="Admin1")]
+        [Authorize(Roles = "admin2")]
         public async Task<IActionResult> Edit(string id)
         {
             var role = await _rolesManager.FindByIdAsync(id);
@@ -68,7 +78,8 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles="Admin1")]
+        [Authorize(Roles = "admin2")]
         public async Task<IActionResult> Edit(EditViewModel model)
         {
             var role = await _rolesManager.FindByIdAsync(model.Id);
@@ -79,6 +90,48 @@ namespace E_Commerce.Controllers
                 return RedirectToAction("GetAll");
             }
             return RedirectToAction("Edit");
+        }
+        [Route("Roles/AddOrDelete/{id}")]
+        [HttpGet]
+        public async Task<IActionResult> AddOrDelete(string id)
+        {
+            var users = _userManager.Users.ToList();
+            var model = new List<AddOrDeleteUsersViewModel>();
+            var role = await _rolesManager.FindByIdAsync(id);
+            foreach (var user in users)
+            {
+                var y=await _userManager.IsInRoleAsync(user, role.Name);
+                var x = new AddOrDeleteUsersViewModel
+                {
+                    UserName = user.Email,
+                    IsSelected = y,
+                    Id = user.Id
+                };
+                model.Add(x);
+            }
+            return View(model);
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> AddOrDelete(List<AddOrDeleteUsersViewModel> models, string id)
+        {
+            var role = await _rolesManager.FindByIdAsync(id);
+            if (role== null)
+                return RedirectToAction("Error", "Error");
+            foreach (AddOrDeleteUsersViewModel addOrDeleteUsersViewModel in models)
+            {
+                var user =  await _userManager.FindByIdAsync(addOrDeleteUsersViewModel.Id);
+                if (addOrDeleteUsersViewModel.IsSelected&&!await _userManager.IsInRoleAsync(user,role.Name))
+                {
+                    await _userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if (!addOrDeleteUsersViewModel.IsSelected&&await _userManager.IsInRoleAsync(user,role.Name))
+                { 
+                    await _userManager.RemoveFromRoleAsync(user,role.Name );
+                }
+            }
+
+            return RedirectToAction("Edit",new {id});
         }
         
     }

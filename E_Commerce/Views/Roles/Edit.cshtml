@@ -3,6 +3,7 @@
 @{
     Layout = "_Layout";
 }
+
 <form asp-action="Edit" asp-controller="Roles">
     <div class="role">
         <label asp-for="Id">Role Id</label>
@@ -15,23 +16,29 @@
     <div class="sub">
         <input type="submit"/>
     </div>
-    <div>The Users</div>
-    <div>
-        <table>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-            </tr>
-            @{
-                foreach (var user in Model.Users)
-                {
-                    <tr>
-                        <td>@user.Id</td>
-                        <td>@user.Email</td>
-                    </tr>
-                }
-            }
-
-        </table>
-    </div>
 </form>
+<div>
+    
+    <div>The Users</div>
+
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <a>Delete</a>
+        </tr>
+        @{
+            foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
+<div>
+    <a asp-controller="Roles" asp-action="AddOrDelete" asp-route-id="@Model.Id">Delete Or AddUsers</a>
+</div>
