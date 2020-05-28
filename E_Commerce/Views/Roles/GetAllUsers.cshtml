@@ -1,0 +1,42 @@
+﻿@using E_Commerce.Models.Data
+@model System.Collections.Generic.List<E_Commerce.Models.Data.ApplicationUser>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<html>
+<head>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<table style="width:100%">
+    <tr>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>city</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @{
+        foreach (ApplicationUser applicationUser in Model)
+        {
+            <tr>
+                <td>@applicationUser.Email</td>
+                <td>@applicationUser.PhoneNumber</td>
+                <td>@applicationUser.City</td>
+                <th><a asp-controller="Roles" asp-action="EditUser" asp-route-id="@applicationUser.Id">Edit</a></th>
+                <th><a asp-controller="Roles" asp-action="DeleteUser" asp-route-id="@applicationUser.Id">Delete</a></th>
+            </tr>
+        }
+    }
+</table>
+</body>
+</html>

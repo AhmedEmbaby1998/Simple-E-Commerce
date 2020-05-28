@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.Controllers
@@ -51,7 +52,8 @@ namespace E_Commerce.Controllers
 
             return View("Add");
         }
-
+        [Route("Roles")]
+        [Authorize]
         public IActionResult GetAll()
         {
             var l = _rolesManager.Roles.AsNoTracking().ToList();
@@ -75,6 +77,12 @@ namespace E_Commerce.Controllers
                 Users = _userManager.GetUsersInRoleAsync(role.Name).Result.ToList()
             };
             return View(model);
+        }
+
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var state = await _rolesManager.DeleteAsync(await _rolesManager.FindByIdAsync(id));
+            return state.Succeeded ? RedirectToAction("GetAll") : RedirectToAction("Error", "Error");
         }
 
         [HttpPost]
@@ -133,6 +141,50 @@ namespace E_Commerce.Controllers
 
             return RedirectToAction("Edit",new {id});
         }
+        [Route("users")]
+        public  IActionResult GetAllUsers()
+        {
+            return  View(_userManager.Users.ToList());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = _userManager.Users.First(u => u.Id == id);
+            var claims = await _userManager.GetClaimsAsync(user);
+            return View(new EditUserViwModel
+            {
+                City = user.City,
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                Roles = await _userManager.GetRolesAsync(user),
+                Claims =claims.Select(claim => claim.Value).ToList(),
+                ConcurrencyStamp = user.ConcurrencyStamp
+            });
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditaUser(EditUserViwModel user)
+        {
+            var state=await _userManager.UpdateAsync(new ApplicationUser
+            {
+                Id = user.Id,
+                City = user.City,
+                Email = user.Email,
+                UserName = user.UserName,
+                ConcurrencyStamp = user.ConcurrencyStamp
+                
+            });
+            return state.Succeeded ? RedirectToAction("GetAllUsers") : RedirectToAction("Products","Product");
+        }
+
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var state = await _userManager.DeleteAsync(await _userManager.FindByIdAsync(id));
+            return state.Succeeded ? RedirectToAction("GetAllUsers") : RedirectToAction("Error", "Error");
+        }
         
+        
+       
     }
 }

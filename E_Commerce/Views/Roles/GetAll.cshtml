@@ -4,15 +4,36 @@
 @{
     Layout = "_Layout";
 }
+<html>
+<head>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+   <div class="align-content-lg-center">
+            <table style="width:100%">
+                <thead>
+                <td>Role
+                <td>Edit</td>
+                <td>Delete</td>
+                </thead>
+                @{
+                    foreach (IdentityRole identityRole in Model)
+                    {
+                        <tr>
+                            <td>@identityRole.Name</td>
+                            <td><a asp-controller="Roles" asp-action="Edit" asp-route-id="@identityRole.Id">Edit</a></td>
+                            <td><a asp-action="DeleteRole" asp-controller="Roles" asp-route-id="@identityRole.Id">Delete</a></td>
+                        </tr>
 
-@{
-    foreach (IdentityRole identityRole in Model)
-    {
-        <div class="align-content-lg-center">
-            <span class="align-baseline">@identityRole.Name</span>
-            <span class="align-content-lg-center">@identityRole.ConcurrencyStamp</span>
-            <a  asp-controller="Roles" asp-action="Edit" asp-route-id="@identityRole.Id" >Edit</a>
-            <a type="submit" class="align-content-start">Delete</a>
+                    }
+                }
+                </table>
         </div>
-    }
-}
+</body>
+</html>
+    

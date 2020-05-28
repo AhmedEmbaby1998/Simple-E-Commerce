@@ -1,0 +1,61 @@
+﻿@model E_Commerce.Models.FormsData.EditUserViwModel
+
+@{
+    Layout = "_Layout";
+}
+
+<form asp-controller="Roles" asp-action="EditaUser"  method="post">
+    <div>
+        <label asp-for="Id" >Id</label>
+        <input asp-for="Id" type="text" readonly="readonly"/>
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="text"/>
+    </div>  
+    <div>
+        <label asp-for="City">City</label>
+        <input asp-for="City" type="text" />
+    </div>
+    <div>
+        <label asp-for="UserName">UserName</label>
+        <input asp-for="UserName" type="text" />
+    </div>
+       <div>
+            <label asp-for="ConcurrencyStamp">ConcurrencyStamp</label>
+            <input asp-for="ConcurrencyStamp" type="text" />
+        </div>
+    <div>
+        <input type="submit"/>
+    </div>
+</form>
+<div>Roles of the User</div>
+@{
+    if (Model.Roles.Any())
+    {
+        foreach (var role in Model.Roles)
+        {
+            <div>@role</div>
+        }
+    }
+    else
+    {
+        <div>the User has no Roles</div>
+    }
+}
+<a>Edit Roles</a>
+<div>Claims of the User</div>
+@{
+    if (Model.Claims.Any())
+    {
+        foreach (var claim in Model.Claims)
+        {
+            <div>@claim</div>
+        }
+    }
+    else
+    {
+        <div>the User has no Claims</div>
+    }
+}
+<a>Edit Claims</a>
