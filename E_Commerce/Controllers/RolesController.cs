@@ -27,16 +27,14 @@ namespace E_Commerce.Controllers
             _context = context;
         }
         [HttpGet]
-        [Authorize(Roles="Admin1")]
-        [Authorize(Roles = "admin2")]
+ 
         public IActionResult Add()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles="Admin1")]
-        [Authorize(Roles = "admin2")]
+     
         public async Task<IActionResult> Add(CreateRolesViewModel model)
         {
             if (ModelState.IsValid)
@@ -61,8 +59,7 @@ namespace E_Commerce.Controllers
         }
         
         [HttpGet]
-        [Authorize(Roles="Admin1")]
-        [Authorize(Roles = "admin2")]
+  
         public async Task<IActionResult> Edit(string id)
         {
             var role = await _rolesManager.FindByIdAsync(id);
@@ -72,7 +69,7 @@ namespace E_Commerce.Controllers
             }
             var model = new EditViewModel
             {
-                Id = role.Id,
+                RoleId = role.Id,
                 Name = role.Name,
                 Users = _userManager.GetUsersInRoleAsync(role.Name).Result.ToList()
             };
@@ -86,11 +83,10 @@ namespace E_Commerce.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles="Admin1")]
-        [Authorize(Roles = "admin2")]
+     
         public async Task<IActionResult> Edit(EditViewModel model)
         {
-            var role = await _rolesManager.FindByIdAsync(model.Id);
+            var role = await _rolesManager.FindByIdAsync(model.RoleId);
             role.Name = model.Name;
             var state=await _rolesManager.UpdateAsync(role);
             if (state.Succeeded)
@@ -113,7 +109,7 @@ namespace E_Commerce.Controllers
                 {
                     UserName = user.Email,
                     IsSelected = y,
-                    Id = user.Id
+                    UserId = user.Id
                 };
                 model.Add(x);
             }
@@ -128,7 +124,7 @@ namespace E_Commerce.Controllers
                 return RedirectToAction("Error", "Error");
             foreach (AddOrDeleteUsersViewModel addOrDeleteUsersViewModel in models)
             {
-                var user =  await _userManager.FindByIdAsync(addOrDeleteUsersViewModel.Id);
+                var user =  await _userManager.FindByIdAsync(addOrDeleteUsersViewModel.UserId);
                 if (addOrDeleteUsersViewModel.IsSelected&&!await _userManager.IsInRoleAsync(user,role.Name))
                 {
                     await _userManager.AddToRoleAsync(user, role.Name);
@@ -148,14 +144,16 @@ namespace E_Commerce.Controllers
         }
 
         [HttpGet]
+        [Route("Roles/EditUser/{id}")]
         public async Task<IActionResult> EditUser(string id)
         {
-            var user = _userManager.Users.First(u => u.Id == id);
+            var user =await _userManager.FindByIdAsync(id);
+            
             var claims = await _userManager.GetClaimsAsync(user);
             return View(new EditUserViwModel
             {
                 City = user.City,
-                Id = user.Id,
+                UserId = user.Id,
                 Email = user.Email,
                 UserName = user.UserName,
                 Roles = await _userManager.GetRolesAsync(user),
@@ -168,7 +166,7 @@ namespace E_Commerce.Controllers
         {
             var state=await _userManager.UpdateAsync(new ApplicationUser
             {
-                Id = user.Id,
+                Id = user.UserId,
                 City = user.City,
                 Email = user.Email,
                 UserName = user.UserName,
@@ -183,7 +181,40 @@ namespace E_Commerce.Controllers
             var state = await _userManager.DeleteAsync(await _userManager.FindByIdAsync(id));
             return state.Succeeded ? RedirectToAction("GetAllUsers") : RedirectToAction("Error", "Error");
         }
-        
+        [HttpGet]
+        public async Task<IActionResult> AddOrDeleteRolesOfAUser(string id)
+        {
+            var roles = _rolesManager.Roles.ToList();
+            var viewModels=new List<AddOrDeleteRolesToAUserViewModel>();
+            var user = await _userManager.FindByIdAsync(id);
+            foreach (var role in roles)
+            {
+                viewModels.Add(new AddOrDeleteRolesToAUserViewModel
+                {
+                    Name = role.Name,
+                    RoleId = role.Id,
+                    Checked =await _userManager.IsInRoleAsync(user,role.Name)
+                });
+            }
+
+            return View(viewModels);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddOrDeleteRolesOfAUser(string id,List<AddOrDeleteRolesToAUserViewModel> model)
+        {
+            var user =await  _userManager.FindByIdAsync(id);
+            var state=await _userManager.AddToRolesAsync(user,
+                model.Where( viewModel =>
+                        viewModel.Checked && ! _userManager.IsInRoleAsync(user, viewModel.Name).Result)
+                    .Select(viewModel => viewModel.Name));
+            
+            await _userManager.RemoveFromRolesAsync(user,
+                model.Where( viewModel =>
+                        !viewModel.Checked &&  _userManager.IsInRoleAsync(user, viewModel.Name).Result)
+                    .Select(viewModel => viewModel.Name));
+            return RedirectToAction("AddOrDeleteRolesOfAUser",new{id});
+        }
         
        
     }

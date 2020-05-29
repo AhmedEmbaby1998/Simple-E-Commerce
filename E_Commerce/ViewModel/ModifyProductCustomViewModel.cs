@@ -13,7 +13,7 @@ namespace E_Commerce.Models.FormsData
             CategoriesId=new List<int>();
         }
 
-        public int Id { set; get; }
+        public int ProductId { set; get; }
         public int CategoryId { set; get; }
         public List<Image> OldImages;
         public List<IFormFile> newImages { set; get; }

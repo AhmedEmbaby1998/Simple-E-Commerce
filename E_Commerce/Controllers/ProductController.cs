@@ -63,7 +63,7 @@ namespace E_Commerce.Controllers
             return View(new ModifyProductCustomViewModel
             {
                 Price = product.Price,
-                Id=product.Id,
+                ProductId=product.Id,
                 OldImages =product.Images,
                 Name = product.Name,
                 CategoriesId = _repo.GetAllCategoriesId(),
@@ -76,7 +76,7 @@ namespace E_Commerce.Controllers
             var modifProduct=new Product();
             if (form.newImages.Count!=0)
             {
-                foreach (var image in _repo.GetImages(form.Id))
+                foreach (var image in _repo.GetImages(form.ProductId))
                 {
                     System.IO.File.Delete($"C:/Users/Mr/RiderProjects/E_Commerce/E_Commerce/wwwroot/images/{image.Path}");
                 }
@@ -84,13 +84,13 @@ namespace E_Commerce.Controllers
                 up.StageRange(form.newImages);
                 up.Save();
                 modifProduct.Images = up.GetFilesObjects<Image>();
-                _repo.DeleteAllImages(form.Id);
+                _repo.DeleteAllImages(form.ProductId);
             }
 
-            var oldQuantity = _repo.Get(form.Id).Quantity;
+            var oldQuantity = _repo.Get(form.ProductId).Quantity;
             modifProduct.CategoryId = form.CategoryId;
             modifProduct.Name = form.Name;
-            modifProduct.Id = form.Id;
+            modifProduct.Id = form.ProductId;
             modifProduct.Price = form.Price;
             modifProduct.Quantity = oldQuantity;
             _repo.Update(modifProduct);

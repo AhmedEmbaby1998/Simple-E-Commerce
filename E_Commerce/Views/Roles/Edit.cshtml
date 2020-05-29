@@ -6,8 +6,8 @@
 
 <form asp-action="Edit" asp-controller="Roles">
     <div class="role">
-        <label asp-for="Id">Role Id</label>
-        <input asp-for="Id" readonly="readonly" type="text"/>
+        <label asp-for="RoleId">Role Id</label>
+        <input asp-for="RoleId" readonly="readonly" type="text"/>
     </div>
     <div class="role">
         <label asp-for="Name">Role Id</label>
@@ -40,5 +40,5 @@
     </table>
 </div>
 <div>
-    <a asp-controller="Roles" asp-action="AddOrDelete" asp-route-id="@Model.Id">Delete Or AddUsers</a>
+    <a asp-controller="Roles" asp-action="AddOrDelete" asp-route-id="@Model.RoleId">Delete Or AddUsers</a>
 </div>

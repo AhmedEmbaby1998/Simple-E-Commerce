@@ -9,7 +9,7 @@ namespace E_Commerce.Models.FormsData
         { 
             Users=new List<ApplicationUser>();
         }
-        public string Id { set; get; }
+        public string RoleId { set; get; }
         public string Name { set; get; }
         public List<ApplicationUser> Users { set; get; }
     }

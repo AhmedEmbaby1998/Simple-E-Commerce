@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,7 +38,7 @@ namespace E_Commerce
             services.AddDbContextPool<ECommerceContext>(
                 builder => builder.UseSqlServer(Configuration.GetConnectionString("ecommerceConnection"))
                     .UseLoggerFactory(ConsoleLoggetFactory)
-                );
+                ); 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = true;
@@ -45,7 +46,7 @@ namespace E_Commerce
                     options.Password.RequireUppercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                 })
-                .AddEntityFrameworkStores<ECommerceContext>();
+                .AddEntityFrameworkStores<ECommerceContext>(); 
             services.AddScoped<IProductRepo, ProductRepo>();
             services.AddControllersWithViews();
         }

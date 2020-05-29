@@ -11,7 +11,7 @@ namespace E_Commerce.Models.FormsData
             Claims=new List<string>();
         }
         [Required]
-        public string Id { set; get; }
+        public string UserId { set; get; }
         [Required,DataType(DataType.EmailAddress)]
         public string Email { set; get; }
         public string City { set; get; }
