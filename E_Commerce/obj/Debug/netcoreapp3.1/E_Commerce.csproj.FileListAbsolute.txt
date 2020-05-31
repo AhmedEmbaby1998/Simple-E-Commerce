@@ -94,3 +94,4 @@ C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Vi
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\GetAllUsers.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\EditUser.cshtml.g.cs
 C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\AddOrDeleteRolesOfAUser.cshtml.g.cs
+C:\Users\Mr\RiderProjects\E_Commerce\E_Commerce\obj\Debug\netcoreapp3.1\Razor\Views\Roles\AddOrDeleteClaimsForAUser.cshtml.g.cs

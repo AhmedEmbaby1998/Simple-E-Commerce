@@ -27,6 +27,7 @@
           <e p="ECommerceContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="ClaimStore.cs" t="Include" />
           <e p="Data" t="Include">
             <e p="ApplicationUser.cs" t="Include" />
             <e p="Category.cs" t="Include" />
@@ -65,6 +66,7 @@
           <e p="ValidateEmailDomainAttribute.cs" t="Include" />
         </e>
         <e p="ViewModel" t="Include">
+          <e p="AddOrDeleteClaimsForAUser.cs" t="Include" />
           <e p="AddOrDeleteRolesToAUserViewModel.cs" t="Include" />
           <e p="AddOrDeleteUsersViewModel.cs" t="Include" />
           <e p="CreateRolesViewModel.cs" t="Include" />
@@ -99,6 +101,7 @@
           <e p="Roles" t="Include">
             <e p="Add.cshtml" t="Include" />
             <e p="AddOrDelete.cshtml" t="Include" />
+            <e p="AddOrDeleteClaimsForAUser.cshtml" t="Include" />
             <e p="AddOrDeleteRolesOfAUser.cshtml" t="Include" />
             <e p="Edit.cshtml" t="Include" />
             <e p="EditUser.cshtml" t="Include" />

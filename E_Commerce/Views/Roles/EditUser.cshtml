@@ -58,4 +58,4 @@
         <div>the User has no Claims</div>
     }
 }
-<a>Edit Claims</a>
+<a asp-controller="Roles" asp-action="AddOrDeleteClaimsForAUser" asp-route-userId="@Model.UserId">Edit Claims</a>
