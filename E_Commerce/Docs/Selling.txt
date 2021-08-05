@@ -94,5 +94,5 @@ Get all selling process of a specific truck'
 	}
 ]
 
-if the truck does not exist abad request will retuen
+if the truck does not exist a bad request will retuen
 --------------------------------------------------------------------------

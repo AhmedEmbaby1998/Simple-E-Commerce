@@ -1,0 +1,82 @@
+﻿1-[POST]
+Adding a new expense of a specific Truck
+
+/api/TruckExpense/{Truck Id}
+==Input
+
+{
+	"Id"=0,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"Money"=17000,
+    "CategoryId":1,//example نقدية
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250
+}
+==Response 200 ok
+{
+	"Id"=122,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"Money"=17000,
+    "CategoryId":1,//example نقدية
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250
+}
+
+otherWise Bad Request:400  if the expese failed to be added
+-------------------------------------------------------------------------------------------------------------
+2-[PUT]
+Update an existed expense Item
+/api/TruckExpense/{Expense Item Id}
+==Input
+{
+	"Id"=0,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"Money"=17000,
+    "CategoryId":1,//example نقدية
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250
+}
+==Response
+200 ok 
+{
+	"Id"=178,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"Money"=17000,
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250و
+    "CategoryId":1,//example نقدية
+}
+otherWise Bad Request:400  if the expese failed to be updated or the expense item does not exist
+----------------------------------------------------------------------------------------------------------------
+3-[DELETE]
+Delete an expense item
+/api/TruckExpense/{Expense Item Id}
+
+==Response 
+200 Ok if the item deleted successfully
+if the truck does not exist a bad request will retuen
+--------------------------------------------------------------------------------------------------------------------
+4-[GET]
+GET all expenses of a specific truck
+
+/api/TruckExpense/{Truck Id}
+
+==Response 
+{
+{
+	"Id"=178,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"Money"=17000,
+    "CategoryId":1,//example نقدية
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250
+},
+{
+	"Id"=179,
+	"DateTime"="2021-08-05T14:40:51.451Z",
+	"CategoryId":1,//example نقدية
+	"Money"=1200,
+	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
+	"TruckId"=250
+}
+}
