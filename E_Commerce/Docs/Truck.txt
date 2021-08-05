@@ -1,0 +1,86 @@
+﻿1-[POST]
+adding new Truck
+its only about truck main data
+
+/api/Truck
+
+==input  [From Body]
+{
+  "id": 0,
+  "farmerId": 10,
+  "truckDate": "2021-08-05T14:33:02.605Z",
+  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "itemsCount": 0,    //always send 0
+  "truckTypeId": 1,//عمولة
+  "truckIdForThisDayAndClient": 0
+}
+==Response
+200 status:
+{
+  "id": 2,
+  "farmerId": 10,
+  "truckDate": "2021-08-05T14:33:02.605Z",
+  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "itemsCount": 0,   
+  "truckTypeId": 1,//عمولة
+  "truckIdForThisDayAndClient": 0
+}
+
+400 status if the server failed to add truck
+====notes 
+1-
+truckTypeId =1 =>عمولة
+truckTypeId =2 =>مشتروات
+
+2-
+server will not make any validation for the number sent in truckIdForThisDayAndClient  to verify that the  number express 
+the actual Id FOR THE TRUCK FOR this clien.the number MUST be greater than zero OTHERWISE the server will reply by 400 status.
+
+--------------------------------------------------------------------------------------------------------
+2-[PUT]
+UPDATE the main information of the truck
+
+​/api​/Truck​/{truckId}
+
+==Input [FROM body]
+{
+  "id": 2,
+  "farmerId": 10,
+  "truckDate": "2021-08-05T14:40:51.451Z",
+  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "truckTypeId": 2,
+  "truckIdForThisDayAndClient": 5
+}
+
+==Response
+1- 200 ok
+{
+  "id": 2,
+  "farmerId": 10,
+  "truckDate": "2021-08-05T14:40:51.451Z",
+  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "truckTypeId": 2,
+  "truckIdForThisDayAndClient": 5
+}
+
+2- 400 BadRequest
+if there is no such truck with the sent Id in the route 
+--------------------------------------------------------------------------------------------
+3-[Delete]
+Delete all the truck and even all its associated entities i.e sellings,expenses,damages
+
+​/api​/Truck​/{truckId}
+
+==Respose 
+200 ok otherwise 400 if nay error had been occured
+---------------------------------------------------------------------------------------------
+4-[Get]
+ get the next truck number for the client and current day
+
+ /api/Truck/GetTheNextTruckNumberForClient/{clientId}
+
+ ==Response
+ 200 ok 
+ 12      
+ otherwise 400 badRequest if the clien does not exist
+ ----------------------------------------------------------------------------
