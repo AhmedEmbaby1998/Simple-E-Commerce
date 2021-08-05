@@ -1,0 +1,98 @@
+﻿1-[Post]
+adding new selling operation
+
+​/api​/Selling​/{truckTypeId}
+
+==Input
+{
+  "id": 0,
+  "partnerId": 3,
+  "priceForUnitWeight": 12,//for each weight unit
+  "productsCount": 15,//tools number(عدد العدايات)
+  "commision": 2,//for each tool Unit
+  "movementToolId": 5,
+  "weight":32,
+  "truckItemId": 4
+}
+==Response 
+Ok:200
+{
+  "id": 4,
+  "partnerId": 3,
+  "priceForUnitWeight": 12,//for each weight unit
+  "productsCount": 15,//tools number(عدد العدايات)
+  "commision": 2,//for each tool Unit
+  "movementToolId": 5,
+  "weight":32,
+  "truckItemId": 4
+}
+ or 400 :bad request if the selling process failed
+ --------------------------------------------------------------------------------------------------
+ 2-[Put]
+ update the selling operation
+ /api/Selling?truckTypeId={Type Id}&ItemId={selling process Id}
+ ==input
+ {
+  "id": 15,
+  "partnerId": 6,//buyer
+  "priceForUnitWeight": 23,
+  "productsCount": 10,
+  "commision": 3.5,
+  "movementToolId": 7,
+  "weight": 54,
+  "truckItemId":35
+}
+
+==Response
+ {
+  "id": 15,
+  "partnerId": 6,//buyer
+  "priceForUnitWeight": 23,
+  "productsCount": 10,
+  "commision": 3.5,
+  "movementToolId": 7,
+  "weight": 54,
+  "truckItemId":35
+}
+---------------------------------------------------------------------------------------------------------
+3-[DELETE]
+Delete specific selling process
+
+​/api​/Selling​/{Selling process Id}
+
+==Response
+200 :ok if the selling item process deleted successfully otherwise  400 :bad Request will return
+
+----------------------------------------------------------------------------------------------------------
+4-[Get]
+Get all selling process of a specific truck'
+
+​/api​/Selling​/{truckId}
+
+==Response
+200 :ok 
+[
+	 {
+	  "id": 15,
+	  "partnerId": 6,//buyer
+	  "priceForUnitWeight": 23,
+	  "productsCount": 10,
+	  "commision": 3.5,
+	  "movementToolId": 7,
+	  "weight": 54,
+	  "truckItemId":35
+	},
+	 {
+	  "id": 16,
+	  "partnerId": 45,//buyer
+	  "priceForUnitWeight": 23,
+	  "productsCount": 10,
+	  "commision": 3.5,
+	  "movementToolId": 7,
+	  "weight": 23,
+	  "truckItemId":40
+	}
+]
+
+if the truck does not exist abad request will retuen
+--------------------------------------------------------------------------
