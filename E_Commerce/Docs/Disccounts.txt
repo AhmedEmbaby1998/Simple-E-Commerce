@@ -1,0 +1,89 @@
+﻿
+---------------------------------------
+-    DO NOT USE THESE APIs FOR        -
+-    THE NON COMMISION TRUCK type     -
+---------------------------------------
+1-[POST]
+adding dicounts for a commision truck type
+
+/api/CommisionTruckDiscounts/{truck Id}
+
+==Input
+{
+    "IndependentCommision"=200,
+    "CommisionPercentage"=15,
+    "CarryingPrice"=150,
+    "OfficeTips":20,
+    "FridgeRent":0,
+    "TruckId":352
+}
+==Response
+200 Ok:
+{
+    "Id"=274,
+    "IndependentCommision"=200,
+    "CommisionPercentage"=15,
+    "CarryingPrice"=150,
+    "OfficeTips":20,
+    "FridgeRent":0,
+    "TruckId":352
+}
+
+if the sent truck is not from commision Type ,a BadRequest Will be Thrown.
+------------------------------------------------------------------------------------
+2-[PUT]
+Update Discount for a commision Ttruck type
+
+/api/CommisionTruckDiscounts/{truck Id}
+
+==Input 
+{
+    "Id"=251,//optional
+    "IndependentCommision"=200,
+    "CommisionPercentage"=15,
+    "CarryingPrice"=150,
+    "OfficeTips":20,
+    "FridgeRent":0,
+    "TruckId":352
+}
+==Response 
+OK:200
+{
+    "Id"=251,
+    "IndependentCommision"=200,
+    "CommisionPercentage"=15,
+    "CarryingPrice"=150,
+    "OfficeTips":20,
+    "FridgeRent":0,
+    "TruckId":352
+}
+OR BAD Request if the truck does not have any dicounts ascciated with it or the discount failed to be updated
+----------------------------------------------------------------------------------------------------------------
+3-[Delete]
+/api/CommisionTruckDiscounts/{truck Id}
+ ok (200)
+if the item is deleted successfully ,itherwise 400:BadRequest
+
+-------------------------------------------------------------------------------------------------------------------
+4-[Get]
+Get the Discount asscociated with a specific commision truck Item
+
+/api/CommisionTruckDiscounts/{truck Id}
+
+==Response
+{
+    "Id"=251,
+    "IndependentCommision"=200,
+    "CommisionPercentage"=15,
+    "CarryingPrice"=150,
+    "OfficeTips":20,
+    "FridgeRent":0,
+    "TruckId":352
+}
+
+==Notes 
+Please ,be aware ,the relationship between a truck and Discount is one to one ,thus ,this api will return a single
+object not a collection
+
+-------------------------------------------------------------------------------------------------------------
+
