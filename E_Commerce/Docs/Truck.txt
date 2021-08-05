@@ -83,4 +83,206 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
  200 ok 
  12      
  otherwise 400 badRequest if the clien does not exist
- ----------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------
+ 5-[POST]
+ for adding new [[[Commision Item]]]
+​/api​/Truck​/CommisionItems​/{truckId}
+
+==INPUT
+[
+  {
+    "id": 0,
+    "productId": 13,
+    "mostSellingPrice": 7,
+    "mostCommision": 3,
+    "mostMovementToolId": 0,
+    "remainingProductCount": 0,
+    "itemsCount": 30
+  }
+]
+
+==Response 
+200 ok
+[
+  {
+    "id": 23,
+    "productId": 13,
+    "mostSellingPrice": 7,
+    "mostCommision": 3,
+    "mostMovementToolId": 0,
+    "remainingProductCount": 0,
+    "itemsCount": 30
+  }
+]
+or badRequest 400 if the Item had not been saved
+---------------------------------------------------------------------------------------------------------------
+6-[POST]
+adding new [[[Buying Item]]]
+
+/api/Truck/BuyingItems/{truckId}
+
+=Input
+[
+  {
+    "id": 0,
+    "productId": 22,
+    "mostSellingPrice": 13,
+    "mostCommision": 4,
+    "mostMovementToolId": 6,
+    "remainingProductCount": 0,  //do not change zero
+    "itemsCount": 50,  //50عداية 
+    "commisionForClient": 3,
+    "weight": 300,
+    "price":10   //for unit weight.the price from the clien(farmer)
+  }
+]
+
+=Response
+200 Ok
+[
+  {
+    "id": 250,
+    "productId": 22,
+    "mostSellingPrice": 13,
+    "mostCommision": 4,
+    "mostMovementToolId": 6,
+    "remainingProductCount": 0,  //do not change zero
+    "itemsCount": 50,  //50عداية 
+    "commisionForClient": 3,
+    "weight": 300,
+    "price":10   //for unit weight.the price from the clien(farmer)
+  }
+]
+-------------------------------------------------------------------------------------------------------------------
+7-[PUT]
+update a commision Item
+
+​/api​/Truck​/CommisionItems​/{itemId}
+==Input  
+{
+  "id": 154,
+  "productId": 115,
+  "mostSellingPrice": 12,
+  "mostCommision": 2,
+  "mostMovementToolId": 1,
+  "remainingProductCount": 0,
+  "itemsCount": 22
+}
+==Response
+200 ok
+{
+  "id": 154,
+  "productId": 115,
+  "mostSellingPrice": 12,
+  "mostCommision": 2,
+  "mostMovementToolId": 1,
+  "remainingProductCount": 0,
+  "itemsCount": 22
+}
+
+-------------------------------------------------------------------------------------------------------------------
+8-[PUT]
+update a BUying Item
+
+​/api​/Truck​/BuyingItems​/{itemId}
+==Input  
+{
+  "id": 254,
+  "productId": 51,
+  "mostSellingPrice": 10,
+  "mostCommision": 2,
+  "mostMovementToolId": 12,
+  "remainingProductCount": 0,
+  "itemsCount": 55,
+  "commisionForClient": 1.5,
+  "weight": 300,
+  "price": 6 //the price of selling grom client
+}
+==Response
+200 ok
+{
+  "id": 254,
+  "productId": 51,
+  "mostSellingPrice": 10,
+  "mostCommision": 2,
+  "mostMovementToolId": 12,
+  "remainingProductCount": 0,
+  "itemsCount": 55,
+  "commisionForClient": 1.5,
+  "weight": 300,
+  "price": 6 //the price of selling grom client
+}
+--------------------------------------------------------------------------------------------------------------
+9-[Delete]
+delete a specific item whether this item is Commisin or buying TYPE
+
+​/api​/Truck​/BuyingItems​?typeId={truck type}&ItemId={truck Item Id}
+
+==Response
+Ok:200 if the item is successfully deleted itherwise bad request :400.
+------------------------------------------------------------------------------------------------------------------
+10-[GET]
+GET all items of a specific commision type Truck
+
+​/api​/Truck​/CommisionItems​/{truck Id}
+
+=Response :collecton of items
+
+[
+    {
+      "id": 154,
+      "productId": 115,
+      "mostSellingPrice": 12,
+      "mostCommision": 2,
+      "mostMovementToolId": 1,
+      "remainingProductCount": 0,
+      "itemsCount": 22
+    },
+    {
+      "id": 155,
+      "productId": 115,
+      "mostSellingPrice": 12,
+      "mostCommision": 2,
+      "mostMovementToolId": 1,
+      "remainingProductCount": 0,
+      "itemsCount": 22
+    }
+]
+or BadRequest if the truck Does not exist
+----------------------------------------------------------------------------------------------------------------
+11-
+GET all items of a specific Buying type Truck
+
+​/api​/Truck​/BuyingItems​/{truck Id}
+
+=Response :collecton of items
+[
+  {
+    "id": 250,
+    "productId": 22,
+    "mostSellingPrice": 13,
+    "mostCommision": 4,
+    "mostMovementToolId": 6,
+    "remainingProductCount": 0,  //do not change zero
+    "itemsCount": 50,  //50عداية 
+    "commisionForClient": 3,
+    "weight": 300,
+    "price":10   //for unit weight.the price from the clien(farmer)
+  },
+   {
+    "id": 251,
+    "productId": 22,
+    "mostSellingPrice": 13,
+    "mostCommision": 4,
+    "mostMovementToolId": 6,
+    "remainingProductCount": 0,  //do not change zero
+    "itemsCount": 50,  //50عداية 
+    "commisionForClient": 3,
+    "weight": 300,
+    "price":10   //for unit weight.the price from the clien(farmer)
+  },
+
+]
+
+or BadRequest if the truck Does not exist
+----------------------------------------------------------------------------------------------------------------
