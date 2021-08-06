@@ -84,6 +84,22 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
  12      
  otherwise 400 badRequest if the clien does not exist
  --------------------------------------------------------------------------------------------
+ 5-[Get]
+ Get The truck main data
+ ​/api​/Truck​/{truckId}
+ 1- 200 ok
+{
+  "id": 2,
+  "farmerId": 10,
+  "truckDate": "2021-08-05T14:40:51.451Z",
+  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "truckTypeId": 2,
+  "truckIdForThisDayAndClient": 5
+}
+
+2- 400 BadRequest
+if there is no such truck with the sent Id in the route 
+ ----------------------------------------------------------------------------------
  5-[POST]
  for adding new [[[Commision Item]]]
 ​/api​/Truck​/CommisionItems​/{truckId}
