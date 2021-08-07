@@ -10,7 +10,6 @@ its only about truck main data
   "farmerId": 10,
   "truckDate": "2021-08-05T14:33:02.605Z",
   "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "itemsCount": 0,    //always send 0
   "truckTypeId": 1,//عمولة
   "truckIdForThisDayAndClient": 0
 }
