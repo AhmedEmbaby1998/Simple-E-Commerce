@@ -5,21 +5,20 @@ Adding a new expense of a specific Truck
 ==Input
 
 {
-	"Id"=0,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"Money"=17000,
-    "CategoryId":1,//example نقدية
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250
-}
+  "categoryId": 2,
+  "dateTime": "2021-08-07T00:55:54.997Z",
+  "money": 1000,
+  "notes": "string1000",
+  "truckId": 5
+
 ==Response 200 ok
 {
-	"Id"=122,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"Money"=17000,
-    "CategoryId":1,//example نقدية
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250
+    "id": 1,
+    "categoryId": 2,
+    "dateTime": "2021-08-07T00:55:54.997Z",
+    "money": 120,
+    "notes": "string",
+    "truckId": 0
 }
 
 otherWise Bad Request:400  if the expese failed to be added
@@ -50,11 +49,18 @@ otherWise Bad Request:400  if the expese failed to be updated or the expense ite
 ----------------------------------------------------------------------------------------------------------------
 3-[DELETE]
 Delete an expense item
+
 /api/TruckExpense/{Expense Item Id}
 
+==input
+{
+  "id":5,
+  "categoryId":2,
+  "truckId": 5
+}
 ==Response 
 200 Ok if the item deleted successfully
-if the truck does not exist a bad request will retuen
+if the truck or expense do not exist  a bad request will retun 
 --------------------------------------------------------------------------------------------------------------------
 4-[GET]
 GET all expenses of a specific truck

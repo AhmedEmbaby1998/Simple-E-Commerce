@@ -105,7 +105,7 @@ if there is no such truck with the sent Id in the route
 ​/api​/Truck​/CommisionItems​/{truckId}
 
 ==INPUT
-[
+[         //please notice,the APIs Input is a collection not a single value
   {
     "id": 0,
     "productId": 13,
@@ -138,7 +138,8 @@ adding new [[[Buying Item]]]
 /api/Truck/BuyingItems/{truckId}
 
 =Input
-[
+[         //please notice,the APIs Input is a collection not a single value
+
   {
     "id": 0,
     "productId": 22,
