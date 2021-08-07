@@ -3,10 +3,20 @@
 -    DO NOT USE THESE APIs FOR        -
 -    THE NON COMMISION TRUCK type     -
 ---------------------------------------
+
+
+   ////////////////////////////////////////////////////////////////////////////////////////////
+  /  please,don't get stucked,when adding new dicount send truckId in route                  /
+ /  while,in updating send the discount id in route                                         /
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 1-[POST]
 adding dicounts for a commision truck type
 
 /api/CommisionTruckDiscounts/{truck Id}
+
 
 ==Input
 {
