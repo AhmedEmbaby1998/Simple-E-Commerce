@@ -60,9 +60,7 @@ OK:200
 OR BAD Request if the truck does not have any dicounts ascciated with it or the discount failed to be updated
 ----------------------------------------------------------------------------------------------------------------
 3-[Delete]
-/api/CommisionTruckDiscounts/{truck Id}
- ok (200)
-if the item is deleted successfully ,itherwise 400:BadRequest
+accoring to bussiness,you can not delete a discount entity .you can only add or uppdate
 
 -------------------------------------------------------------------------------------------------------------------
 4-[Get]
