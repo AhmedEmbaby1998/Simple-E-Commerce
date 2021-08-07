@@ -40,6 +40,7 @@ adding dicounts for a commision truck type
 }
 
 if the sent truck is not from commision Type ,a BadRequest Will be Thrown.
+if you had alreadu added a discount,then you can neither insert new one nor delete the old one.
 ------------------------------------------------------------------------------------
 2-[PUT]
 Update Discount for a commision Ttruck type
