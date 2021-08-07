@@ -23,29 +23,9 @@ Adding a new expense of a specific Truck
 
 otherWise Bad Request:400  if the expese failed to be added
 -------------------------------------------------------------------------------------------------------------
-2-[PUT]
-Update an existed expense Item
-/api/TruckExpense/{Expense Item Id}
-==Input
-{
-	"Id"=0,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"Money"=17000,
-    "CategoryId":1,//example نقدية
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250
-}
-==Response
-200 ok 
-{
-	"Id"=178,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"Money"=17000,
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250و
-    "CategoryId":1,//example نقدية
-}
-otherWise Bad Request:400  if the expese failed to be updated or the expense item does not exist
+2-
+there is no API for updating an expense but instead,use delete for deleting the old expense then add the new data as new entity.
+
 ----------------------------------------------------------------------------------------------------------------
 3-[DELETE]
 Delete an expense item
