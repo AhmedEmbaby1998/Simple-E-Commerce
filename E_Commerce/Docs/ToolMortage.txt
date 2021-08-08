@@ -1,0 +1,70 @@
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 1-  do not use these Apis with commision truck type.                                                       /
+2-  the relationship between truck and toolMortage is one to one,thus,trying to add tool mortage to a truck/
+ /has already a tool mortage will cause error (BadRequest).                                               /
+/                                                                                                        /
+/                                                                                                       /
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1-[POST]
+Inserting  a tool mortage
+/api/ToolMortage/{truck Id}
+==input
+{
+  "mortageMoney": 500,
+  "truckId": 1006
+}
+==Response
+{
+    "id": 6,
+    "mortageMoney": 500,
+    "truckId": 1006
+}
+
+------------------------------------------------------------------------------------------------------------------
+2-[GET]
+/api/ToolMortage/{truck id}
+
+==Response
+{
+    "id": 6,
+    "mortageMoney": 500,
+    "truckId": 1006
+}
+please notice,here you send truckId not the toolMortageId.because simply,How can you get the Tool MortageId!.but insted,
+you can know the truck Id very easily.
+
+-------------------------------------------------------------------------------------------------------------------
+3-[PUT]
+
+Update tool Mortage of Mortage Id
+
+/api/ToolMortage/{tool mortage Id}
+
+==input
+{
+  "id": 6,
+  "mortageMoney": 10000,
+  "truckId": 1006
+}
+
+==response
+{
+    "id": 6,
+    "mortageMoney": 10000,
+    "truckId": 1006
+}
+
+-notice that here ,you must send Tool mortage Id unlike the API of Post
+
+---------------------------------------------------------------------------------------------------------------------
+4-[Delete]
+Delete the tool mortage of a specific truck
+/api/ToolMortage/{truck Id}
+
+==Response
+true
+
+please notice,here you send truckId not the toolMortageId
+
+-----------------------------------------------------------------------------------------------------------------------

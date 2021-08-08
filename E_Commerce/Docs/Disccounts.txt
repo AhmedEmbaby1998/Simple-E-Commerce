@@ -20,12 +20,12 @@ adding dicounts for a commision truck type
 
 ==Input
 {
-    "IndependentCommision"=200,
-    "CommisionPercentage"=15,
-    "CarryingPrice"=150,
-    "OfficeTips":20,
-    "FridgeRent":0,
-    "TruckId":352
+  "independentCommision": 250,
+  "commisionPercentage": 30,
+  "carryingPrice": 150,
+  "officeTips": 10,
+  "movementToolRent":11,
+  "fridgeRent": 0
 }
 ==Response
 200 Ok:
@@ -36,7 +36,6 @@ adding dicounts for a commision truck type
     "CarryingPrice"=150,
     "OfficeTips":20,
     "FridgeRent":0,
-    "TruckId":352
 }
 
 if the sent truck is not from commision Type ,a BadRequest Will be Thrown.
