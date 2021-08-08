@@ -303,3 +303,18 @@ GET all items of a specific Buying type Truck
 
 or BadRequest if the truck Does not exist
 ----------------------------------------------------------------------------------------------------------------
+12-
+[GET]
+/api/Truck/{truck Id}
+==Response
+{
+    "id": 5,
+    "farmerId": 4,
+    "truckDate": "2021-08-05T18:01:04.144",
+    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551",
+    "itemsCount": 0,
+    "truckTypeId": 1,
+    "truckIdForThisDayAndClient": 10
+}
+if the truck does not fount ,it will return noContent:204
+--------------------------------------------------------------------------------------------------------------------
