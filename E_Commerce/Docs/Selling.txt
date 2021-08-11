@@ -5,7 +5,6 @@ adding new selling operation
 
 ==Input
 {
-  "id": 0,
   "partnerId": 3,
   "priceForUnitWeight": 12,//for each weight unit
   "productsCount": 15,//tools number(عدد العدايات)
@@ -64,35 +63,3 @@ Delete specific selling process
 200 :ok if the selling item process deleted successfully otherwise  400 :bad Request will return
 
 ----------------------------------------------------------------------------------------------------------
-4-[Get]
-Get all selling process of a specific truck'
-
-​/api​/Selling​/{truckId}
-
-==Response
-200 :ok 
-[
-	 {
-	  "id": 15,
-	  "partnerId": 6,//buyer
-	  "priceForUnitWeight": 23,
-	  "productsCount": 10,
-	  "commision": 3.5,
-	  "movementToolId": 7,
-	  "weight": 54,
-	  "truckItemId":35
-	},
-	 {
-	  "id": 16,
-	  "partnerId": 45,//buyer
-	  "priceForUnitWeight": 23,
-	  "productsCount": 10,
-	  "commision": 3.5,
-	  "movementToolId": 7,
-	  "weight": 23,
-	  "truckItemId":40
-	}
-]
-
-if the truck does not exist a bad request will retuen
---------------------------------------------------------------------------

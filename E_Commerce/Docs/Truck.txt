@@ -84,35 +84,18 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
  12      
  otherwise 400 badRequest if the clien does not exist
  --------------------------------------------------------------------------------------------
- 5-[Get]
- Get The truck main data
- ​/api​/Truck​/{truckId}
- 1- 200 ok
-{
-  "id": 2,
-  "farmerId": 10,
-  "truckDate": "2021-08-05T14:40:51.451Z",
-  "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "truckTypeId": 2,
-  "truckIdForThisDayAndClient": 5
-}
 
-2- 400 BadRequest
-if there is no such truck with the sent Id in the route 
- ----------------------------------------------------------------------------------
- 5-[POST]
+ 4-[POST]
  for adding new [[[Commision Item]]]
 ​/api​/Truck​/CommisionItems​/{truckId}
 
 ==INPUT
 [         //please notice,the APIs Input is a collection not a single value
   {
-    "id": 0,
     "productId": 13,
     "mostSellingPrice": 7,
     "mostCommision": 3,
-    "mostMovementToolId": 0,
-    "remainingProductCount": 0,
+    "mostMovementToolId": 1,
     "itemsCount": 30
   }
 ]
@@ -132,7 +115,7 @@ if there is no such truck with the sent Id in the route
 ]
 or badRequest 400 if the Item had not been saved
 ---------------------------------------------------------------------------------------------------------------
-6-[POST]
+5-[POST]
 adding new [[[Buying Item]]]
 
 /api/Truck/BuyingItems/{truckId}
@@ -141,12 +124,10 @@ adding new [[[Buying Item]]]
 [         //please notice,the APIs Input is a collection not a single value
 
   {
-    "id": 0,
     "productId": 22,
     "mostSellingPrice": 13,
     "mostCommision": 4,
     "mostMovementToolId": 6,
-    "remainingProductCount": 0,  //do not change zero
     "itemsCount": 50,  //50عداية 
     "commisionForClient": 3,
     "weight": 300,
@@ -171,7 +152,7 @@ adding new [[[Buying Item]]]
   }
 ]
 -------------------------------------------------------------------------------------------------------------------
-7-[PUT]
+6-[PUT]
 update a commision Item
 
 ​/api​/Truck​/CommisionItems​/{itemId}
@@ -198,7 +179,7 @@ update a commision Item
 }
 
 -------------------------------------------------------------------------------------------------------------------
-8-[PUT]
+7-[PUT]
 update a BUying Item
 
 ​/api​/Truck​/BuyingItems​/{itemId}
@@ -303,18 +284,3 @@ GET all items of a specific Buying type Truck
 
 or BadRequest if the truck Does not exist
 ----------------------------------------------------------------------------------------------------------------
-12-
-[GET]
-/api/Truck/{truck Id}
-==Response
-{
-    "id": 5,
-    "farmerId": 4,
-    "truckDate": "2021-08-05T18:01:04.144",
-    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551",
-    "itemsCount": 0,
-    "truckTypeId": 1,
-    "truckIdForThisDayAndClient": 10
-}
-if the truck does not fount ,it will return noContent:204
---------------------------------------------------------------------------------------------------------------------
