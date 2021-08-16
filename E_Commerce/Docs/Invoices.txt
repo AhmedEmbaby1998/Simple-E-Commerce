@@ -1,0 +1,187 @@
+﻿-----------------------------------------------------------------------------------------------------------------
+/         DO NOT USE THESE APIS WITH BUYING TRUCK TYPE,THEY DOES NOT HAVE INVOICES except for 
+/the api created for getting profit of a buying truck type
+/                                                                                                               /
+-------------------------------------------------------------------------------------------------------------
+1-[POST]
+for adding an Invoice item you must create an invoice at first
+
+/api/TruckInvoice
+
+==INPUT
+{
+  "truckId": 1007,
+  "creattionDate": "2021-08-11T23:49:35.387Z",             //use creattionDate with its fault in spelling
+  "freezed": false,
+  "adderId": "5827C7CD-2E31-41D4-8145-FEBEE624B551"
+}
+
+==Response
+{
+    "id": 8,
+    "truckId": 1007,
+    "printingNumber": 0,       //how many times these invoice had been printed
+    "creattionDate": "2021-08-11T23:49:35.387Z",
+    "freezed": false,  //false is not freezed                            //if the invoice is freezed =>true else false
+    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551"
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+2-[PUT]
+
+SET the invoice as freezed 
+
+/api/TruckInvoice/freezeInvoice/{invoice Id}
+
+==Response 
+200 if the invoice is existed otherwise,a bad request.
+
+==when using this API WITH response 200,then Freezed =true.
+-------------------------------------------------------------------------------------------------------------------------------
+3-[PUT]
+
+SET the invoice as freezed 
+
+/api/TruckInvoice/ActiveInvoice/{invoice id}
+
+==Response 
+200 if the invoice is existed otherwise,a bad request.
+
+==when using this API WITH response 200,then Freezed = false.
+----------------------------------------------------------------------------------------------------------------------------------
+4-[PUT]
+this API should INVOKED only when the client side printes the invoice.thus,server side can keep trake the number of invoice printing.
+
+/api/TruckInvoice/LogPrintCount/{invoice id}
+
+==Response
+200 if the invoice is existed otherwise,a bad request.
+-----------------------------------------------------------------------------------------------------------------------------------
+5-[POST]
+
+ADD A COLLECTION OF itemS to invoice 
+
+/api/TruckInvoice/Item/
+
+==INPUT
+[
+    {
+  "invoiceId": 8,
+  "itemId": 2006,
+  "itemCount": 6,
+  "weight": 30,
+  "priceForUnitWeight": 10
+    },
+    {
+  "invoiceId": 8,
+  "itemId": 2006,
+  "itemCount": 6,
+  "weight": 30,
+  "priceForUnitWeight": 10
+    }
+]
+
+==Response
+[
+    {
+        "id": 10,
+        "invoiceId": 8,
+        "itemId": 2006,
+        "itemCount": 6,
+        "weight": 30,
+        "priceForUnitWeight": 10,
+        "totalMoney": 300
+    },
+    {
+        "id": 11,
+        "invoiceId": 8,
+        "itemId": 2006,
+        "itemCount": 6,
+        "weight": 30,
+        "priceForUnitWeight": 10,
+        "totalMoney": 300
+    }
+]
+---------------------------------------------------------------------------------------------------------------------------------------------
+6-[PUT]
+
+update an invoice item 
+
+==INPUT
+/api/TruckInvoice/Item/4
+{
+  "id": 4,
+  "invoiceId":1,
+  "itemId": 1002,
+  "itemCount": 10,
+  "weight": 40,
+  "priceForUnitWeight": 5
+}
+==RESPONSE
+{
+    "id": 4,
+    "invoiceId": 1,
+    "itemId": 1002,
+    "itemCount": 10,
+    "weight": 40,
+    "priceForUnitWeight": 5,
+    "totalMoney": 200
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+7-[DELETE]
+
+DELETE AN INVOICE ITEM
+
+/api/TruckInvoice/Item/2
+
+==Response ok or bad request is there is an error occured
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+8-[GET]
+get all items of a specific invoice 
+
+/api/TruckInvoice/Item/{invoice id}
+
+[
+    {
+        "id": 10,
+        "invoiceId": 8,
+        "item": {
+            "id": 2006,
+            "product": {
+                "id": 2,
+                "name": "عنب1"
+            }
+        },
+        "itemCount": 6,
+        "weight": 30,
+        "priceForUnitWeight": 10,
+        "totalMoney": 300
+    },
+    {
+        "id": 11,
+        "invoiceId": 8,
+        "item": {
+            "id": 2006,
+            "product": {
+                "id": 2,
+                "name": "عنب1"
+            }
+        },
+        "itemCount": 6,
+        "weight": 30,
+        "priceForUnitWeight": 10,
+        "totalMoney": 300
+    }
+]
+--------------------------------------------------------------------------------------------------------------------------------------------------
+9-[GET]
+get the profit of a buying truckType
+/api/TruckInvoice/BuyingTruckProfit/{truck Id}
+
+==Response
+5000
+
+or bad request
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
