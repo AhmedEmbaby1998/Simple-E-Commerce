@@ -1,24 +1,39 @@
-﻿1-[POST]
+﻿
+--------------------------------------------------------------------------
+--     send all json data from BODY BY DEFAULT                          --
+   --------------------------------------------------------------------
+
+
+
+
+
+
+
+1-[POST]
 Adding a new expense of a specific Truck
 
-/api/TruckExpense/{Truck Id}
+/api/ExpenseContoller
 ==Input
 
-{
-  "categoryId": 2,
-  "dateTime": "2021-08-07T00:55:54.997Z",
-  "money": 1000,
-  "notes": "string1000",
-  "truckId": 5
+
+    {
+  "TreasuryTypeId": 1,
+  "dateTime": "2021-08-11T01:37:08.988Z",
+  "money": 60,
+  "notes": "string600",
+  "truckId": 1009,
+   "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+}
 
 ==Response 200 ok
 {
-    "id": 1,
-    "categoryId": 2,
-    "dateTime": "2021-08-07T00:55:54.997Z",
-    "money": 120,
-    "notes": "string",
-    "truckId": 0
+    "id": 22,
+    "dateTime": "2021-08-11T01:37:08.988Z",
+    "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "money": 60,
+    "notes": "string600",
+    "treasuryTypeId": 1,
+    "truckId": 1009
 }
 
 otherWise Bad Request:400  if the expese failed to be added
@@ -30,8 +45,7 @@ there is no API for updating an expense but instead,use delete for deleting the 
 3-[DELETE]
 Delete an expense item
 
-/api/TruckExpense/{Expense Item Id}
-
+/api/ExpenseContoller
 ==input
 {
   "id":5,
@@ -43,26 +57,63 @@ Delete an expense item
 if the truck or expense do not exist  a bad request will retun 
 --------------------------------------------------------------------------------------------------------------------
 4-[GET]
-GET all expenses of a specific truck
+GET all expenses of a specific truck with conclusions and the expenses that will be deduced from invoice 
 
-/api/TruckExpense/{Truck Id}
+==notes
+please,be aware that the number of items in conclusion depends on whether the truck is buying or commision.
+
+/api/ExpenseContoller/1007
 
 ==Response 
 {
-{
-	"Id"=178,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"Money"=17000,
-    "CategoryId":1,//example نقدية
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250
-},
-{
-	"Id"=179,
-	"DateTime"="2021-08-05T14:40:51.451Z",
-	"CategoryId":1,//example نقدية
-	"Money"=1200,
-	"Notes"="وصله 17000 بأمارة انه بعت ولده يخدهم",
-	"TruckId"=250
-}
+    "expenses": [
+        {
+            "id": 20,
+            "name": "نولون",
+            "money": 150,
+            "notes": "string600"
+        },
+        {
+            "id": 21,
+            "name": "نقدية",
+            "money": 1000,
+            "notes": "string600"
+        },
+        {
+            "id": 22,
+            "name": "رهن",
+            "money": 60,
+            "notes": "string600"
+        },
+        {
+            "id": 13,
+            "name": "دخان",
+            "money": 10,
+            "notes": "string600"
+        }
+    ],
+    "invoiceDeductions": [
+        {
+            "id": 20,
+            "name": "نولون",
+            "money": 150,
+            "notes": "string600"
+        },
+        {
+            "id": 13,
+            "name": "دخان",
+            "money": 10,
+            "notes": "string600"
+        }
+    ],
+    "conclusions": [
+        {
+            "name": "اجمالي",
+            "value": 160
+        },
+        {
+            "name": "رهن العدة",
+            "value": 60
+        }
+    ]
 }
