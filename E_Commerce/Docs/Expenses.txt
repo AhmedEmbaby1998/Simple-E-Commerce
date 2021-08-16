@@ -117,3 +117,44 @@ please,be aware that the number of items in conclusion depends on whether the tr
         }
     ]
 }
+------------------------------------------------------------------------------------------------------
+4-[GET]
+/api/ExpenseContoller/categories
+
+GET ALL Categories allowed to be used in truck expenses
+==Response
+[
+    {
+        "id": 1,
+        "name": "رهن"
+    },
+    {
+        "id": 2,
+        "name": "نقدية"
+    },
+    {
+        "id": 3,
+        "name": "نولون"
+    },
+    {
+        "id": 4,
+        "name": "عملة_مقدمة"
+    },
+    {
+        "id": 5,
+        "name": "مصروفات_اخري_هالك"
+    },
+    {
+        "id": 6,
+        "name": "مصروفات_اخري_منصرف"
+    },
+    {
+        "id": 7,
+        "name": "دخان"
+    }
+]
+
+
+==notes
+YOU MUSTN'T USE any expense category out of collection returned from [get] /api/ExpenseContoller/categories
+otherwise you will end up with a BadRequest.
