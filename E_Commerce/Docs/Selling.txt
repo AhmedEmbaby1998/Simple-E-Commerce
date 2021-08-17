@@ -1,4 +1,15 @@
-﻿1-[Post]
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+***********************send all data from body except for it said something else excplicity in the API itself.****************
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+1-[Post]
 adding new selling operation
 
 ​/api​/Selling​/{truckTypeId}
@@ -57,9 +68,82 @@ Ok:200
 3-[DELETE]
 Delete specific selling process
 
-​/api​/Selling​/{Selling process Id}
+/api/Selling?truckTypeId=2&sellId=2002
 
 ==Response
 200 :ok if the selling item process deleted successfully otherwise  400 :bad Request will return
 
 ----------------------------------------------------------------------------------------------------------
+4-[GET]
+
+get all sellings of a specific truck
+
+/api/Selling?truckTypeId=2&truckId=1006
+
+==Response
+[                                     ///collection
+    {
+        "id": 2,
+        "partner": {
+            "id": 4,
+            "name": "ahmed embaby0"
+        },
+        "priceForUnitWeight": 10,
+        "productsCount": 7,
+        "commision": 3,
+        "movementTool": {
+            "id": 1,
+            "name": "tool0"
+        },
+        "weight": 120,
+        "truckItem": {
+            "id": 1,
+            "product": {
+                "id": 3,
+                "name": "عنب2"
+            }
+        }
+    }
+]
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+5-[GET]
+GET summerizings of sellings
+
+/api/Selling/Summerize?truckTypeId=1&truckId=1002
+
+==Response
+[
+    {
+        "id": 8,
+        "price": 7,
+        "item": {
+            "id": 1002,
+            "product": {
+                "id": 2,
+                "name": "عنب1"
+            }
+        },
+        "weight": 40,
+        "itemsCount": 10,
+        "totalMoney": 280
+    },
+    {
+        "id": 10,
+        "price": 8,
+        "item": {
+            "id": 1002,
+            "product": {
+                "id": 2,
+                "name": "عنب1"
+            }
+        },
+        "weight": 35,
+        "itemsCount": 9,
+        "totalMoney": 280
+    }
+]
+
+---------------------------------------------------------------------------------------------------------------------------
+
+   

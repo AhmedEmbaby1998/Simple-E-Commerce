@@ -303,16 +303,16 @@ delete a specific commision item
 
 ==Response
 Ok:200 if the item is successfully deleted itherwise bad request :400.
-==notes:if the passed item is existed in any invoic item it will throw a bad request till
-the user delete the invoice item contains the passed item.
+==notes:if the passed item is existed in any invoice item it will throw a bad request till
+the user delete the invoice item contains the passed truck item.
 ----------------------------------------------------------------------------------------------------------------------
 11-[Delete]
-delete a specific commision item 
+delete a specific buying item 
 
 /api/Truck/BuyingItems/{truck Item Id}
 
 ==Response
-Ok:200 if the item is successfully deleted itherwise bad request :400.
+Ok:200 if the item is successfully deleted otherwise bad request :400.
 ------------------------------------------------------------------------------------------------------------------------------------
 12-[Delete]
 Delete a truck with all its related data
@@ -441,3 +441,5 @@ getting all trucks match the passed search parameters
 ==Notes
 1-do not send a any bool as false ,but instead send null
 2-if the server found out that the result set is an empty then it will return a badRequest
+
+---------------------------------------------------------------------------------------------------------------------------------------
