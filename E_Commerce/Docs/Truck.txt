@@ -1,4 +1,20 @@
-﻿1-[POST]
+﻿-----------------------------------------------------------------------------------------------------------
+                 ****SETTING some conventional words in the truck***********
+
+if we have a truck with two truck items 1-apple 2-limons
+apple 20 number of tools(200 KG) and the limon 10(100 KG) numer of tools
+we had selled 22 number of tools from apple and 7 number of tools from limon
+
+THEN
+
+1-"itemsCount": 2(apple and limon)
+2-"innerItemsCount": 20 apple+10 limon=30,
+3-"overFlowItemsCount":1 (apple as number of selled exceed the number of products)
+4-"completedItemsCount":0 (neither apple nor limon are completed) 
+
+-----------------------------------------------------------------------------------------------------------------
+
+1-[POST]
 adding new Truck
 its only about truck main data
 
@@ -64,8 +80,78 @@ UPDATE the main information of the truck
 
 2- 400 BadRequest
 if there is no such truck with the sent Id in the route 
---------------------------------------------------------------------------------------------
-3-[Delete]
+-----------------------------------------------------------------------------------------------------------
+3-[GET]
+ there is two different end points to get the data of a specific truck:get truck and get full truck Data.
+ using which API depends on the data the client side wants to recieve .as, the second API CONTAINS the full 
+ data of the truck.THUS,second api is more expenseive than the first.so,please,be careful to use the appropriate
+ one .DON'T use the get full truck data to serve you in all positions,instead,use it when you find that the simple
+ get truck api can not achieve UI/UX requirements.
+
+ A-[GET]
+ get simple truck data
+
+ /api/Truck/{truck Id}
+ ==Response
+ {
+    "id": 5,
+    "farmer": {
+        "id": 4,
+        "name": "ahmed embaby0"
+    },
+    "truckDate": "2021-08-05T18:01:04.144",
+    "itemsCount": 0,
+    "truckTypeId": 1,
+    "truckType": "عمولة",
+    "truckIdForThisDayAndClient": 10
+}
+
+B-[GET]
+get full truck data
+
+/api/Truck/FullData/1006
+
+==Response exmaple for commision truck
+{
+    "id": 1002,
+    "farmer": {
+        "id": 4,
+        "name": "ahmed embaby0"
+    },
+    "truckDate": "2021-08-07T22:33:26.011",
+    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551",
+    "itemsCount": 2,
+    "truckType": 1,
+    "truckIdForThisDayAndClient": 10,
+    "innerItemsCount": 110,
+    "totalWeight": 0,
+    "innerRemainingItems": 8,
+    "overFlowItemsCount": 0,
+    "completedItemsCount": 0,
+    "totalCostPrice": 0
+}
+==response example for buying truck
+{
+    "id": 1002,
+    "farmer": {
+        "id": 4,
+        "name": "ahmed embaby0"
+    },
+    "truckDate": "2021-08-07T22:33:26.011",
+    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551",
+    "itemsCount": 2,
+    "truckType": 1,
+    "truckIdForThisDayAndClient": 10,
+    "innerItemsCount": 110,
+    "totalWeight": 0,
+    "innerRemainingItems": 8,
+    "overFlowItemsCount": 0,
+    "completedItemsCount": 0,
+    "totalCostPrice": 0
+}
+
+------------------------------------------------------------------------------------------------------------
+4-[Delete]
 Delete all the truck and even all its associated entities i.e sellings,expenses,damages
 
 ​/api​/Truck​/{truckId}
@@ -73,7 +159,7 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
 ==Respose 
 200 ok otherwise 400 if nay error had been occured
 ---------------------------------------------------------------------------------------------
-4-[Get]
+5-[Get]
  get the next truck number for the client and current day
 
  /api/Truck/GetTheNextTruckNumberForClient/{clientId}
@@ -84,7 +170,7 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
  otherwise 400 badRequest if the clien does not exist
  --------------------------------------------------------------------------------------------
 
- 4-[POST]
+ 6-[POST]
  for adding new [[[Commision Item]]]
 ​/api​/Truck​/CommisionItems​/{truckId}
 
@@ -114,7 +200,7 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
 ]
 or badRequest 400 if the Item had not been saved
 ---------------------------------------------------------------------------------------------------------------
-5-[POST]
+7-[POST]
 adding new [[[Buying Item]]]
 
 /api/Truck/BuyingItems/{truckId}
@@ -151,7 +237,7 @@ adding new [[[Buying Item]]]
   }
 ]
 -------------------------------------------------------------------------------------------------------------------
-6-[PUT]
+8-[PUT]
 update a commision Item
 
 ​/api​/Truck​/CommisionItems​/{itemId}
@@ -178,7 +264,7 @@ update a commision Item
 }
 
 -------------------------------------------------------------------------------------------------------------------
-7-[PUT]
+9-[PUT]
 update a BUying Item
 
 ​/api​/Truck​/BuyingItems​/{itemId}
@@ -210,7 +296,7 @@ update a BUying Item
   "price": 6 //the price of selling grom client
 }
 -----------------------------------------------------------------------------------------------------------------------
-9-[Delete]
+10-[Delete]
 delete a specific commision item 
 
 /api/Truck/CommisionItems/{truck Item Id}
@@ -220,7 +306,7 @@ Ok:200 if the item is successfully deleted itherwise bad request :400.
 ==notes:if the passed item is existed in any invoic item it will throw a bad request till
 the user delete the invoice item contains the passed item.
 ----------------------------------------------------------------------------------------------------------------------
-10-[Delete]
+11-[Delete]
 delete a specific commision item 
 
 /api/Truck/BuyingItems/{truck Item Id}
@@ -228,7 +314,7 @@ delete a specific commision item
 ==Response
 Ok:200 if the item is successfully deleted itherwise bad request :400.
 ------------------------------------------------------------------------------------------------------------------------------------
-11-[Delete]
+12-[Delete]
 Delete a truck with all its related data
 
 /api/truck/{truck Id}
@@ -240,7 +326,7 @@ warn the user twice at least to assert that the user means to delete.
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
-11-[GET]
+13-[GET]
 GET all items of a specific commision type Truck
 
 ​/api​/Truck​/CommisionItems​/{truck Id}
@@ -269,7 +355,7 @@ GET all items of a specific commision type Truck
 ]
 or BadRequest if the truck Does not exist
 ----------------------------------------------------------------------------------------------------------------
-11-[GET]
+14-[GET]
 GET all items of a specific Buying type Truck
 
 ​/api​/Truck​/BuyingItems​/{truck Id}
@@ -304,4 +390,19 @@ GET all items of a specific Buying type Truck
 ]
 
 or BadRequest if the truck Does not exist
+----------------------------------------------------------------------------------------------------------------
+15-[GET]
+GET ALL products available in a specific truck
+
+/api/Truck/products/{truck Id}
+
+==Response 
+[
+    {
+        "id": 2,
+        "name": "عنب1"
+    }
+]
+
+
 ----------------------------------------------------------------------------------------------------------------
