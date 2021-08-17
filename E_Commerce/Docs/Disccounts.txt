@@ -15,7 +15,7 @@
 1-[POST]
 adding dicounts for a commision truck type
 
-/api/CommisionTruckDiscounts/{truck Id}
+/api/Discounts/{truckId}
 
 
 ==Input
@@ -31,10 +31,10 @@ adding dicounts for a commision truck type
 200 Ok:
 {
     "Id"=274,
-    "IndependentCommision"=200,
-    "CommisionPercentage"=15,
+    "IndependentCommision"=250,
+    "CommisionPercentage"=30,
     "CarryingPrice"=150,
-    "OfficeTips":20,
+    "OfficeTips":10,
     "FridgeRent":0,
 }
 
@@ -44,28 +44,29 @@ if you had alreadu added a discount,then you can neither insert new one nor dele
 2-[PUT]
 Update Discount for a commision Ttruck type
 
-/api/CommisionTruckDiscounts/{truck Id}
+/api/Discounts/{Discount Id}
 
 ==Input 
 {
-    "Id"=251,//optional
-    "IndependentCommision"=200,
-    "CommisionPercentage"=15,
-    "CarryingPrice"=150,
-    "OfficeTips":20,
-    "FridgeRent":0,
-    "TruckId":352
+  "independentCommision": 77,
+  "commisionPercentage": 77,
+  "carryingPrice": 55,
+  "officeTips": 55,
+  "movementToolRent":32 ,
+  "fridgeRent": 44,
+  "truckId":5
 }
 ==Response 
 OK:200
 {
     "Id"=251,
-    "IndependentCommision"=200,
-    "CommisionPercentage"=15,
-    "CarryingPrice"=150,
-    "OfficeTips":20,
-    "FridgeRent":0,
-    "TruckId":352
+    "independentCommision": 77,
+    "commisionPercentage": 77,
+    "carryingPrice": 55,
+    "officeTips": 55,
+    "movementToolRent":32 ,
+    "fridgeRent": 44,
+    "truckId":5
 }
 OR BAD Request if the truck does not have any dicounts ascciated with it or the discount failed to be updated
 ----------------------------------------------------------------------------------------------------------------
@@ -76,7 +77,7 @@ accoring to bussiness,you can not delete a discount entity .you can only add or 
 4-[Get]
 Get the Discount asscociated with a specific commision truck Item
 
-/api/CommisionTruckDiscounts/{truck Id}
+/api/Discounts/{truck Id}
 
 ==Response
 {

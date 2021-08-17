@@ -6,7 +6,6 @@ its only about truck main data
 
 ==input  [From Body]
 {
-  "id": 0,
   "farmerId": 10,
   "truckDate": "2021-08-05T14:33:02.605Z",
   "adderId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -210,16 +209,38 @@ update a BUying Item
   "weight": 300,
   "price": 6 //the price of selling grom client
 }
---------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 9-[Delete]
-delete a specific item whether this item is Commisin or buying TYPE
+delete a specific commision item 
 
-​/api​/Truck​/BuyingItems​?typeId={truck type}&ItemId={truck Item Id}
+/api/Truck/CommisionItems/{truck Item Id}
 
 ==Response
 Ok:200 if the item is successfully deleted itherwise bad request :400.
-------------------------------------------------------------------------------------------------------------------
-10-[GET]
+==notes:if the passed item is existed in any invoic item it will throw a bad request till
+the user delete the invoice item contains the passed item.
+----------------------------------------------------------------------------------------------------------------------
+10-[Delete]
+delete a specific commision item 
+
+/api/Truck/BuyingItems/{truck Item Id}
+
+==Response
+Ok:200 if the item is successfully deleted itherwise bad request :400.
+------------------------------------------------------------------------------------------------------------------------------------
+11-[Delete]
+Delete a truck with all its related data
+
+/api/truck/{truck Id}
+
+==Response
+Ok:200 if the item is successfully deleted itherwise bad request :400.
+it's bad ,really bad,this API will delete the passed truck as long as it exists even if this truck has an invoice.so,plaese,
+warn the user twice at least to assert that the user means to delete.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+11-[GET]
 GET all items of a specific commision type Truck
 
 ​/api​/Truck​/CommisionItems​/{truck Id}
@@ -248,7 +269,7 @@ GET all items of a specific commision type Truck
 ]
 or BadRequest if the truck Does not exist
 ----------------------------------------------------------------------------------------------------------------
-11-
+11-[GET]
 GET all items of a specific Buying type Truck
 
 ​/api​/Truck​/BuyingItems​/{truck Id}
