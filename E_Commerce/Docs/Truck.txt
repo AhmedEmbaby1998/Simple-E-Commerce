@@ -2,14 +2,14 @@
                  ****SETTING some conventional words in the truck***********
 
 if we have a truck with two truck items 1-apple 2-limons
-apple 20 number of tools(200 KG) and the limon 10(100 KG) numer of tools
+apple 20 number of tools(200 KG) and the limon 10(100 KG) number of tools
 we had selled 22 number of tools from apple and 7 number of tools from limon
 
 THEN
 
 1-"itemsCount": 2(apple and limon)
 2-"innerItemsCount": 20 apple+10 limon=30,
-3-"overFlowItemsCount":1 (apple as number of selled exceed the number of products)
+3-"overFlowItemsCount":1 ((apple) as number of selled exceedes the number of products)
 4-"completedItemsCount":0 (neither apple nor limon are completed) 
 
 -----------------------------------------------------------------------------------------------------------------
@@ -320,11 +320,9 @@ Delete a truck with all its related data
 /api/truck/{truck Id}
 
 ==Response
-Ok:200 if the item is successfully deleted itherwise bad request :400.
+Ok:200 if the item is successfully deleted otherwise bad request :400.
 it's bad ,really bad,this API will delete the passed truck as long as it exists even if this truck has an invoice.so,plaese,
 warn the user twice at least to assert that the user means to delete.
-
-
 ---------------------------------------------------------------------------------------------------------------------------------------
 13-[GET]
 GET all items of a specific commision type Truck
@@ -390,7 +388,7 @@ GET all items of a specific Buying type Truck
 ]
 
 or BadRequest if the truck Does not exist
-----------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 15-[GET]
 GET ALL products available in a specific truck
 
@@ -405,4 +403,41 @@ GET ALL products available in a specific truck
 ]
 
 
-----------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+16-[GET]
+getting all trucks match the passed search parameters
+
+/api/Truck/Report?pageNumber=1&pageSize=20
+
+==INPUT
+{
+  "at": "2021-08-17T08:13:26.181Z",
+  "partnerId": 3,
+  "truckTypeId": 1,
+  "hasInvoice": true,
+  "hasRemaining": true,
+  "hasOverFlow": null,
+  "completedOrOverFlow": true
+}
+
+==Response
+[
+    {
+        "truckId": 1002,
+        "truckIdForThisDayAndClient": 10,
+        "truckDate": "2021-08-17T08:13:26.181Z",
+        "truckType": "عمولة",
+        "truckTypeId": 1,
+        "itemsCount": 2,
+        "hasInvoice": true,
+        "innerItemsCount": 110,
+        "remaining": 11,
+        "overFlow": 0,
+        "farmerName": "ahmed embaby0",
+        "farmerId": 4
+    }
+]
+
+==Notes
+1-do not send a any bool as false ,but instead send null
+2-if the server found out that the result set is an empty then it will return a badRequest
