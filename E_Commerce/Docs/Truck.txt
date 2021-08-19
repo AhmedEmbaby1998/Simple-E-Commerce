@@ -175,7 +175,6 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
 ​/api​/Truck​/CommisionItems​/{truckId}
 
 ==INPUT
-[         //please notice,the APIs Input is a collection not a single value
   {
     "productId": 13,
     "mostSellingPrice": 7,
@@ -183,7 +182,6 @@ Delete all the truck and even all its associated entities i.e sellings,expenses,
     "mostMovementToolId": 1,
     "itemsCount": 30
   }
-]
 
 ==Response 
 200 ok
@@ -206,7 +204,6 @@ adding new [[[Buying Item]]]
 /api/Truck/BuyingItems/{truckId}
 
 =Input
-[         //please notice,the APIs Input is a collection not a single value
 
   {
     "productId": 22,
@@ -218,7 +215,6 @@ adding new [[[Buying Item]]]
     "weight": 300,
     "price":10   //for unit weight.the price from the clien(farmer)
   }
-]
 
 =Response
 200 Ok
@@ -404,7 +400,7 @@ GET ALL products available in a specific truck
 
 
 --------------------------------------------------------------------------------------------------------------------
-16-[GET]
+16-[POST]
 getting all trucks match the passed search parameters
 
 /api/Truck/Report?pageNumber=1&pageSize=20

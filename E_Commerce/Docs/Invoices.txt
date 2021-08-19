@@ -64,42 +64,29 @@ ADD A COLLECTION OF itemS to invoice
 /api/TruckInvoice/Item/
 
 ==INPUT
-[
+{
+  "itemsDto": [
     {
-  "invoiceId": 8,
-  "itemId": 2006,
-  "itemCount": 6,
-  "weight": 30,
-  "priceForUnitWeight": 10
-    },
-    {
-  "invoiceId": 8,
-  "itemId": 2006,
-  "itemCount": 6,
-  "weight": 30,
-  "priceForUnitWeight": 10
+      "invoiceId": 1,
+      "itemId": 1,
+      "itemCount": 20,
+      "weight": 30,
+      "priceForUnitWeight": 15,
+      "totalMoney": 5000
     }
-]
+  ]
+}
 
 ==Response
 [
     {
-        "id": 10,
-        "invoiceId": 8,
-        "itemId": 2006,
-        "itemCount": 6,
+        "id": 1,
+        "invoiceId": 1,
+        "itemId": 1,
+        "itemCount": 20,
         "weight": 30,
-        "priceForUnitWeight": 10,
-        "totalMoney": 300
-    },
-    {
-        "id": 11,
-        "invoiceId": 8,
-        "itemId": 2006,
-        "itemCount": 6,
-        "weight": 30,
-        "priceForUnitWeight": 10,
-        "totalMoney": 300
+        "priceForUnitWeight": 15,
+        "totalMoney": 450
     }
 ]
 ---------------------------------------------------------------------------------------------------------------------------------------------
