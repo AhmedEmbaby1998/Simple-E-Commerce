@@ -436,6 +436,5 @@ getting all trucks match the passed search parameters
 
 ==Notes
 1-do not send a any bool as false ,but instead send null
-2-if the server found out that the result set is an empty then it will return a badRequest
 
 ---------------------------------------------------------------------------------------------------------------------------------------

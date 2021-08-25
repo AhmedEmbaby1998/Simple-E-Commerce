@@ -89,6 +89,8 @@ ADD A COLLECTION OF itemS to invoice
         "totalMoney": 450
     }
 ]
+==you can not add more than one invoice for each commision truck.if you try to add new invoice to a truck already had an invoice
+,then you will end up with 400 bad request
 ---------------------------------------------------------------------------------------------------------------------------------------------
 6-[PUT]
 
@@ -172,3 +174,19 @@ get the profit of a buying truckType
 or bad request
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+10-[GET]
+get the invoice if a commision truck
+
+/api/TruckInvoice/{truck Id}
+
+==Response 
+
+{
+    "id": 1,
+    "truckId": 3,
+    "printingNumber": 0,
+    "creattionDate": "2021-08-11T23:49:35.387",
+    "freezed": false,
+    "adderId": "5827c7cd-2e31-41d4-8145-febee624b551"
+}
+
