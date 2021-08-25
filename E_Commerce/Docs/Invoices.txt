@@ -26,6 +26,8 @@ for adding an Invoice item you must create an invoice at first
     "adderId": "5827c7cd-2e31-41d4-8145-febee624b551"
 }
 
+==you can not add more than one invoice for each commision truck.if you try to add new invoice to a truck already had an invoice
+,then you will end up with 400 bad request
 ---------------------------------------------------------------------------------------------------------------------------
 2-[PUT]
 
@@ -89,8 +91,7 @@ ADD A COLLECTION OF itemS to invoice
         "totalMoney": 450
     }
 ]
-==you can not add more than one invoice for each commision truck.if you try to add new invoice to a truck already had an invoice
-,then you will end up with 400 bad request
+
 ---------------------------------------------------------------------------------------------------------------------------------------------
 6-[PUT]
 
@@ -190,3 +191,5 @@ get the invoice if a commision truck
     "adderId": "5827c7cd-2e31-41d4-8145-febee624b551"
 }
 
+it will return no content 204 if the truck does not have invoice
+---------------------------------------------------------------------------------------------------------------------------------------------------
