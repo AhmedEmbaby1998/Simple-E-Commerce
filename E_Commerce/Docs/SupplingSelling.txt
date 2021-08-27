@@ -1,0 +1,116 @@
+﻿-------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+**send all data from Body
+**selling by suppling is valid for all types of trucks
+-------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+
+1-[PUT]
+UPDATE AND INSERT the discount of suppling selling to a buyer.do not care how i can use this in both inserting or updating
+.just use it if the suppling is existed and you want to update  ,or the the suppling is not exist so you want to insert .
+backend cares to make the appropriate process.
+
+[PUT]
+/api/selling/suppling?truckId=7&partnerId=3&discount=700.25
+
+==Response 
+{
+    "id": 1,
+    "partnerId": 3,
+    "truckId": 7,
+    "discounts": 700.25
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+2-[GET]
+get all partners(الاجل) who buy from a specific truck includes the suppling sellings
+/api/selling/suppling?truckTypeId=2&truckId=155
+
+[
+    {
+        "truckId": 7,
+        "partnerId": 2,
+        "payementTypeId": 1,
+        "farmerId": 2,
+        "farmerName": "ahmed embaby1",
+        "buyerId": 2,
+        "buyerName": "ahmed embaby1",
+        "innerProductsCount": 28,
+        "totalWeight": 247,
+        "productsCount": 5,
+        "isSuppling": false,
+        "discounts": null       //if the suppling is false ,then discounts will be null else it will have a 'double' type value
+    },
+    {
+        "truckId": 7,
+        "partnerId": 3,
+        "payementTypeId": 1,
+        "farmerId": 2,
+        "farmerName": "ahmed embaby1",
+        "buyerId": 3,
+        "buyerName": "ahmed embaby2",
+        "innerProductsCount": 8,
+        "totalWeight": 20,
+        "productsCount": 2,
+        "isSuppling": true,
+        "discounts": 700.25
+    },
+    {
+        "truckId": 7,
+        "partnerId": 4,
+        "payementTypeId": 1,
+        "farmerId": 2,
+        "farmerName": "ahmed embaby1",
+        "buyerId": 4,
+        "buyerName": "ahmed embaby3",
+        "innerProductsCount": 4,
+        "totalWeight": 25,
+        "productsCount": 1,
+        "isSuppling": false,
+        "discounts": null
+    },
+    {
+        "truckId": 7,
+        "partnerId": 6,
+        "payementTypeId": 1,
+        "farmerId": 2,
+        "farmerName": "ahmed embaby1",
+        "buyerId": 6,
+        "buyerName": "ahmed embaby5",
+        "innerProductsCount": 3,
+        "totalWeight": 34,
+        "productsCount": 1,
+        "isSuppling": false,
+        "discounts": null
+    }
+]
+--------------------------------------------------------------------------------------------------------------------------------------------
+3-
+[POST]
+
+/api/selling/suppling?truckId=150&partnerId=4
+
+add new suppling for a partner in a specific truck.if the partner does not have any selling in the passed thruck it will
+throw a bad request
+
+==Response
+
+{
+    "id": 3,
+    "partnerId": 4,
+    "truckId": 150,
+    "discounts": 0
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+4-
+[DELETE]
+ delete a suppling for a partner in a truck.
+
+/api/selling/suppling?truckId=7&partnerId=4
+
+==Response 
+200 if the suppling deleted successfully,else it will throw  a bad request.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+

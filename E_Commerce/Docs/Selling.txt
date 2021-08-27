@@ -145,5 +145,57 @@ GET summerizings of sellings
 ]
 
 ---------------------------------------------------------------------------------------------------------------------------
+6-[GET]
+get all sellings of a specific partner in a specific truck
+
+/api/Selling/partner?truckTypeId=2&truckId=155&partnerId=4
+
+==Response 
+[
+    {
+        "id": 3,
+        "partner": {
+            "id": 4,
+            "name": "ahmed embaby3"
+        },
+        "priceForUnitWeight": 12,
+        "productsCount": 8,
+        "commision": 5,
+        "movementTool": {
+            "id": 4,
+            "name": "برانيك"
+        },
+        "weight": 12,
+        "truckItem": {
+            "id": 11,
+            "product": {
+                "id": 2,
+                "name": "خيار"
+            }
+        }
+    },
+    {
+        "id": 4,
+        "partner": {
+            "id": 4,
+            "name": "ahmed embaby3"
+        },
+        "priceForUnitWeight": 12,
+        "productsCount": 8,
+        "commision": 5,
+        "movementTool": {
+            "id": 4,
+            "name": "برانيك"
+        },
+        "weight": 12,
+        "truckItem": {
+            "id": 11,
+            "product": {
+                "id": 2,
+                "name": "خيار"
+            }
+        }
+    }
+]
 
    
