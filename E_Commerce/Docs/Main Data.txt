@@ -1,0 +1,26 @@
+﻿1-[GET]
+
+/api/Partners/GetDataAll
+
+get all partners data
+
+
+==OUTPUT
+[
+  {
+    "id": 3,
+    "name": "ahmed embaby1",
+    "userId": "1e8d2371-7260-4b82-b61a-6aa5fa03f5b8",
+    "creationDate": "2021-09-07T19:03:18.9452204",
+    "phone1": "1556999991",
+    "phone2": "55151511",
+    "governoratesId": 1,
+    "citiesId": 1,
+    "address": "fakora1",
+    "opening_balance": 250,
+    "partners_TypeId": 1
+  }
+]
+
+----------------------------------------------------------------------------------------------------------------------------
+2-[PUT]
